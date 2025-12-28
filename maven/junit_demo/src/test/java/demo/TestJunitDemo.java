@@ -35,7 +35,7 @@ package demo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TestDemo {
+public class TestJunitDemo {
 
     @Test
     public void testSum() {
