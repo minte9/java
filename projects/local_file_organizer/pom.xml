@@ -6,7 +6,7 @@
   <version>1.0.0</version>
 
   <build>
-    <finalName>downloads-file-organizer</finalName>
+    <finalName>local-file-organizer</finalName>
 
     <plugins>
       <plugin>

@@ -84,4 +84,4 @@ Run:
 
 Open ONLY the project you want to run in VsCode.
 
-    code java-projects/local_file_organizer
+    code ./projects/local_file_organizer

@@ -1,6 +1,6 @@
 ### Suggested Learning Order (Best ROI)
 
-- File Organizer
+- Local File Organizer
 - Password Checker
 - Expense Tracker
 - Duplicate Finder
