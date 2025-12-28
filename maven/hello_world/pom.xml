@@ -18,6 +18,7 @@
     </properties>
 
     <dependencies>
+        <!-- External library -->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
