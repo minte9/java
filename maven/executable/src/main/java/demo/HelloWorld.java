@@ -9,6 +9,11 @@
  *  - Contains ALL external dependencies
  *  - can be executed directly wiht java -jar 
  * 
+ * KEY MAVEN COMMANDS:
+ * -------------------
+ * mvn dependency:tree
+ * mvn versions:display-dependency-updates
+ * 
  * EXTERNAL LIBERY USED:
  * ---------------------
  * Apache Common Lang (StringUtils)
