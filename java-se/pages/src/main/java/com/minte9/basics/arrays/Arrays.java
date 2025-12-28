@@ -1,5 +1,5 @@
 /**
- * One way to create an array is with new operator ... w
+ * One way to create an array is with new operator ...
  * which allocates the memory for 3 elements
  * 
  * You can also create and initialize the array with {} syntax
