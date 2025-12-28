@@ -45,7 +45,7 @@
                             <transformers>
                                 <transformer implementation=
                         "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.minte9.junit.DemoJunitTest</mainClass>
+                                    <mainClass>demo.TestDemo</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
