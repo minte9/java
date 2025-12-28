@@ -1,0 +1,11 @@
+<pre>
+Welcome!
+
+<a href='/myapp/user'>User page</a> (needs login)
+</pre>
+
+<br>
+<form th:if="${#httpServletRequest.remoteUser != null}" 
+        th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
