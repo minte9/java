@@ -14,8 +14,8 @@
  *     - Produces a result or side-effect
  *     - Triggers execution of the pipeline 
  * 
- * WHAT HAPPENS STEP BY STEP
- * -------------------------
+ * WHAT HAPPENS STEP BY STEP:
+ * --------------------------
  * Even through the code is written top-to-bottom, exection happens
  * element-by-element, not step-by-step
  * 
@@ -25,6 +25,20 @@
  * 3 -> filter -> map -> count
  * 4 -> filter -> map -> count
  * 5 -> filter -> map -> count
+ * 
+ * IMPORTANT INSIGHT:
+ * ------------------
+ * Stream DO NOT:
+ *  - filter all elements first
+ *  - then map all elements
+ * 
+ * WHY THIS MATTERS:
+ * -----------------
+ *  - Streams are efficient
+ *  - No temporary collections
+ *  - Minimal memory usage
+ *  - Short-circuiting is possible
+ *  - Parallel execution became feasible
  */
 
 package com.minte9.streams.pipeline_model;
