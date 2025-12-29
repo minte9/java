@@ -1,7 +1,7 @@
 /**
  * STREAM - REDUCE
  * ------------------------------------------------------------
- * Wwhen you want a single result from collection.
+ * Reduce is used when you want a single result from collection.
  * For example, to calculate the sum.
  * 
  * Imperative approach - using for loop
