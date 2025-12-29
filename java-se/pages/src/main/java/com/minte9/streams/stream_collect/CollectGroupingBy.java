@@ -50,15 +50,8 @@ public class CollectGroupingBy {
             ordersByStatus.get(status).add(order);
         }
     
-        System.out.println(ordersByStatus);
-
-        /**
-            {
-                SHIPPED=[Order[id=4, status=SHIPPED]], 
-                NEW=[Order[id=1, status=NEW], Order[id=3, status=NEW]], 
-                PAID=[Order[id=2, status=PAID]]
-            }
-         */
+        System.out.println(ordersByStatus.get(Status.NEW));
+            // [Order[id=1, status=NEW], Order[id=3, status=NEW]]
 
             
         /**
@@ -70,19 +63,13 @@ public class CollectGroupingBy {
             orders.stream()
                   .collect(groupingBy(Order::status));
 
-        System.out.println(ordersByStatus_B);
+        System.out.println(ordersByStatus_B.get(Status.PAID));
+            // [Order[id=2, status=PAID]]
+
 
         /**
-            {
-                SHIPPED=[Order[id=4, status=SHIPPED]], 
-                NEW=[Order[id=1, status=NEW], Order[id=3, status=NEW]], 
-                PAID=[Order[id=2, status=PAID]]
-            }
-         */
-
-        /**
-         * Very Common VARIANT:
-         * --------------------
+         * GROUPING - STREAMS (very common variant):
+         * -----------------------------------------
          * Grouping + Counting
          */
         Map<Status, Long> countByStatus =
@@ -93,10 +80,7 @@ public class CollectGroupingBy {
                   ));
 
         System.out.println(countByStatus);
-
-        /**
-            {SHIPPED=1, NEW=2, PAID=1}
-         */
+            // {SHIPPED=1, NEW=2, PAID=1}
     }
     
 }
