@@ -26,7 +26,6 @@ public class StreamMap {
 
     private static List<String> toUpper(List<String> lst) {
         List<String> result = new ArrayList<>();
-
         for (String s: lst) {
             result.add(s.toUpperCase());
         }
