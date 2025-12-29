@@ -15,10 +15,8 @@ import static org.junit.Assert.assertEquals;
 public class StreamMap {
     public static void main(String[] args) {
 
-        List<String> source, expected;
-
-        source = asList("a", "b", "c");
-        expected = asList("A", "B", "C");
+        List<String> source = asList("a", "b", "c");
+        List<String> expected = asList("A", "B", "C");
         
         assertEquals(expected, toUpper(source));        // pass
         assertEquals(expected, toUpperStream(source));  // pass
