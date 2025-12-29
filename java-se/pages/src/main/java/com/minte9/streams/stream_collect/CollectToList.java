@@ -26,12 +26,12 @@
  *  - groupBy()
  */
 
-package com.minte9.streams.collect;
+package com.minte9.streams.stream_collect;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Collect {
+public class CollectToList {
     public static void main(String[] args) {
         
         // ------------------------
