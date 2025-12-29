@@ -23,7 +23,7 @@
  * describing a pipeline.
  */
 
-package com.minte9.streams.streams;
+package com.minte9.streams.iteration_styles;
 
 import java.util.Arrays;
 import java.util.List;

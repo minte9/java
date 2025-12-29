@@ -20,7 +20,7 @@
  * Stream   - internal iterator
  */
 
-package com.minte9.streams.streams;
+package com.minte9.streams.iteration_styles;
 
 import java.util.Arrays;
 import java.util.Iterator;
