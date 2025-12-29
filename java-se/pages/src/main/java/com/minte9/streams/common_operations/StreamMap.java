@@ -1,4 +1,6 @@
 /**
+ * STREAMS - MAP
+ * --------------
  * Map each value to uppercase.
  */
 
