@@ -6,11 +6,12 @@
 
 package com.minte9.streams.common_operations;
 
-import java.util.ArrayList;
-import java.util.List;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StreamMap {
     public static void main(String[] args) {
@@ -18,13 +19,13 @@ public class StreamMap {
         List<String> source = asList("a", "b", "c");
         List<String> expected = asList("A", "B", "C");
         
-        assertEquals(expected, toUpper(source));        // pass
+        assertEquals(expected, toUpperLoop(source));    // pass
         assertEquals(expected, toUpperStream(source));  // pass
 
         System.out.println("Done");
     }
 
-    private static List<String> toUpper(List<String> lst) {
+    private static List<String> toUpperLoop(List<String> lst) {
         List<String> result = new ArrayList<>();
 
         for (String s: lst) {
