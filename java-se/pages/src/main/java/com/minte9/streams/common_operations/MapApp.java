@@ -1,5 +1,7 @@
 /**
- * Stream map (to uppercase)
+ * STREAMS - MAP
+ * --------------
+ * Map each value to uppercase.
  */
 
 package com.minte9.streams.common_operations;
@@ -19,7 +21,7 @@ public class MapApp {
         B = asList("A", "B", "C");
         C = new ArrayList<>();
 
-        // For
+        // For Loop
         for(String s : A) {
             C.add(s.toUpperCase());
         }
@@ -30,5 +32,7 @@ public class MapApp {
             .map(x -> x.toUpperCase())
             .collect(toList());
         assertEquals(B, C); // pass
+
+        System.out.println("Done");
     }
 }
