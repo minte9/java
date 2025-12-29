@@ -2,7 +2,7 @@
  * STREAM - COMPARING
  * ------------------------------------------------------------
  * Comparing is used when you want to find minimum or maximum 
- * of an element.
+ * of an element. 
  */
 
 package com.minte9.streams.common_operations;
