@@ -1,6 +1,6 @@
 /**
  * STREAM - COMPARING
- * ------------------------------------------------------------
+ * ----------------------------------------------------------
  * Comparing is used when you want to find minimum or maximum 
  * of an element. 
  */
