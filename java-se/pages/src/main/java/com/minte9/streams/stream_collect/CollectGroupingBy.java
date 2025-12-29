@@ -46,10 +46,12 @@ public class CollectGroupingBy {
             if (!ordersByStatus.containsKey(status)) {
                 ordersByStatus.put(status, new ArrayList<>());
             }
+            
             ordersByStatus.get(status).add(order);
         }
-        
+    
         System.out.println(ordersByStatus);
+
         /**
             {
                 SHIPPED=[Order[id=4, status=SHIPPED]], 
@@ -69,6 +71,7 @@ public class CollectGroupingBy {
                   .collect(groupingBy(Order::status));
 
         System.out.println(ordersByStatus_B);
+
         /**
             {
                 SHIPPED=[Order[id=4, status=SHIPPED]], 
@@ -90,6 +93,7 @@ public class CollectGroupingBy {
                   ));
 
         System.out.println(countByStatus);
+
         /**
             {SHIPPED=1, NEW=2, PAID=1}
          */
