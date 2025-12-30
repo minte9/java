@@ -21,9 +21,9 @@
  * ExecutorService          - run tasks once
  * ScheduledExecutorService - run tasks later or repeatedly
  * 
- * THIS EXAMPLE:
- * -------------
- * Run task once after delay.
+ * NOTE:
+ * ----
+ * With ScheduledExecutorService, periodic scheduling is infinite by default.
  */
 
 package com.minte9.threads.executor_service;
