@@ -9,7 +9,7 @@
  * RULES:
  * -----
  *  1) Threads should stop themselves - never be stopped externally.
- *  2) Shared state between threads must be visible (volatile, synchronization, or atomics).
+ *  2) Shared state between threads must be visible (volatile, synchronization).
  *  3) Timing (sleep) is NOT synchronization.
  */
 
