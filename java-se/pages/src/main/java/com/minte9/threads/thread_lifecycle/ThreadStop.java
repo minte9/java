@@ -1,27 +1,29 @@
 /**
- * A thread is automatically destroyed when the run() method has completed.
- * 
+ * THREAD STOP - COOPERATIVE CANCELLATION
+ * ------------------------------------------
  * You might need to stop a thread on runtime.
- * Use a flag to control thread run() execution.
+ * 
+ * Threads stop by cooperating, not by force.
+ * A shared flag is used to signal termination.
  */
 
-package com.minte9.threads.sleep;
+package com.minte9.threads.thread_lifecycle;
 
-public class Stop {
-    public static void main(String[] args) 
-                        throws InterruptedException {
+public class ThreadStop {
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Start main thread");
 
-        ThreadClass t1 = new ThreadClass("A");
-        ThreadClass t2 = new ThreadClass("B");
+        Worker t1 = new Worker("A");
+        Worker t2 = new Worker("B");
         
         new Thread(t1).start();
         new Thread(t2).start();
+
         Thread.sleep(2000); 
 
-        t1.stop();
-        t2.stop();
+        t1.requestStop();
+        t2.requestStop();
 
         Thread.sleep(1000); 
         System.out.println("Exit main thread");
@@ -39,16 +41,19 @@ public class Stop {
     }
 }
 
-class ThreadClass implements Runnable {
+class Worker implements Runnable {
 
     private String name;
-    private Boolean exit = false;
 
-    public ThreadClass(String n) { 
-        name = n; 
+    // volatile guarantees visibility between threads
+    private volatile boolean exit = false;
+
+    public Worker(String name) { 
+        this.name = name; 
     }
 
-    @Override public void run() {
+    @Override 
+    public void run() {
 
         while(!exit) {
             System.out.println("Thread " + name + " / Run");
@@ -61,10 +66,12 @@ class ThreadClass implements Runnable {
     public void sleep(int ms) {
         try { 
             Thread.sleep(ms); 
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+            // ignored by simplicity
+        }
     }
 
-    public void stop() {
+    public void requestStop() {
         exit = true;
     }
 }
