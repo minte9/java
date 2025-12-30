@@ -2,8 +2,8 @@
  * EXECUTOR SERVICE - THREAD POOL
  * ------------------------------
  * 
- * ExecutorService runs tasks asynchronously
- * using a pool of reusable worker threads.
+ * ExecutorService allows us to run asynchron tasks 
+ * without having to deal with the thread directly.
  * 
  * The executor service makes sure that the pool 
  * always has the specified number of threads running.
