@@ -23,6 +23,9 @@ public class PeriodicTaskForever {
             TimeUnit.SECONDS
         );
 
+        // No shutdown()
+        // Application keeps running
+
         /*
             Heartbeat from pool-1-thread-1
             Heartbeat from pool-1-thread-1
