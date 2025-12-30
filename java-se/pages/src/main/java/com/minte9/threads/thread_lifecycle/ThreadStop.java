@@ -5,6 +5,12 @@
  * 
  * Threads stop by cooperating, not by force.
  * A shared flag is used to signal termination.
+ * 
+ * RULES:
+ * -----
+ *  1) Threads should stop themselves - never be stopped externally.
+ *  2) Shared state between threads must be visible (volatile, synchronization, or atomics).
+ *  3) Timing (sleep) is NOT synchronization.
  */
 
 package com.minte9.threads.thread_lifecycle;
