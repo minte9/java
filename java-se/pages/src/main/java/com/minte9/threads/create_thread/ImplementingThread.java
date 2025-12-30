@@ -31,7 +31,7 @@
  * Calling run() directly does NOT.
  * 
  * new Thread(r).run();   // ❌ runs in MAIN thread
- * new Thread(r).start(); // ✅ runs in NEW thread
+ * new Thread(r).start(); // runs in NEW thread
  * 
  * This mistake causes many bugs.
  * 
