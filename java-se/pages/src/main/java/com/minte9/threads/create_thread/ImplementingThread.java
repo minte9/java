@@ -50,10 +50,12 @@ public class ImplementingThread {
         // Executed by the main thread
         System.out.println(Thread.currentThread().getName());
 
+
         // ----------------------------------
         // 1) Runnable implemented by a class
         // ----------------------------------
         new Thread(new MyClass2()).start(); // Thread-0
+
 
         // ----------------------------------
         // 2) Anonymous Runnable class
@@ -65,6 +67,7 @@ public class ImplementingThread {
             }
         }).start();  // Thread-1
 
+
         // ----------------------------------
         // 3) Lambda expression (Runnable)
         // ----------------------------------
@@ -72,6 +75,7 @@ public class ImplementingThread {
             System.out.println(Thread.currentThread().getName());
         }).start(); // Thread-2
 
+        
         // Still running on the main thread
         System.out.println("Back in Main");
 
