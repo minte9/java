@@ -1,7 +1,7 @@
 
 /**
  * THREAD SLEEP vs JOIN
- * --------------------
+ * ------------------------------
  * They solve different problems.
  * 
  * NOTES:
