@@ -39,10 +39,15 @@
  * - OR package the app and run:
  *     java -jar target/quick_start.jar
  * 
+ * APPLICATON PROPERTIES:
+ * ----------------------
+ * src/main/resources/application.properties 
+ * server.port=9090
+ * 
  * URLs:
  * -----
- * - http://localhost:8080/
- * - http://localhost:8080/hello
+ * - http://localhost:9090/
+ * - http://localhost:9090/hello
  */
 
 package demo;
