@@ -1,50 +1,71 @@
 /**
- * SPRING BOOT - QUICK START APPLICATION
- * -------------------------------------
- * This is the main entry point of a Spring Boot application.
- * It starts the embedded web server (Tomcat by default) 
- * and defines simple HTTP endpoints.
- * 
- * START.SPRING.IO
+ * SPRING BOOT – QUICK START
+ * ------------------------
+ *
+ * What is Spring Boot?
+ * --------------------
+ * Spring Boot is an opinionated framework built on top of Spring.
+ * Its goal is to let you create production-ready applications
+ * with minimal configuration.
+ *
+ * It follows the principle:
+ *   "Convention over Configuration"
+ *
+ * This means:
+ * - Sensible defaults are provided automatically
+ * - You configure only what you want to change
+ * - No XML configuration is required
+ *
+ * What Spring Boot does for us here
+ * --------------------------------
+ * - Starts an embedded web server (Tomcat by default)
+ * - Auto-configures Spring MVC
+ * - Scans this package for components
+ * - Exposes HTTP endpoints with annotations
+ *
+ * Project creation
+ * ----------------
+ * A Spring Boot project is usually created on:
+ *   https://start.spring.io
+ *
+ * Minimum dependency needed for a REST app:
+ *   - Spring Web
+ *
+ * Key Annotations
  * ---------------
- * The most popular way to start Spring projects is with Spring Boot.
- * Spring Boot is built on top of the spring framework.
- * 
- * We can create a new project on start.spring.io and
- * add one dependency (Spring Web).
- * 
- * KEY CONCEPTS:
- * ------------
- * @SpringBootApplicaton
- *  - Marks this class as the main Spring Boot configuration.
- *  - Enables:
- *      - Auto-configuration
- *      - Component scanning
- *      - Spring Boot defaults
- * 
+ * @SpringBootApplication
+ * - Marks this as the main application class
+ * - Enables auto-configuration and component scanning
+ *
  * @RestController
- *  - Combines Controller + ResponseBody
- *  - Every method return data directly (not a view here).
- * 
+ * - Marks this class as a REST controller
+ * - Methods return data directly (no views)
+ *
  * @GetMapping
- *  - Maps HTTP GET requests to Java methods.
- * 
- * HOW TO RUN:
- * -----------
+ * - Maps HTTP GET requests to Java methods
+ *
+ * Configuration by convention
+ * ----------------------------
+ * Default server port: 8080
+ * Can be overridden in:
+ *   src/main/resources/application.properties
+ *
+ * Example:
+ *   server.port=9090
+ *
+ * How to run
+ * ----------
  * - mvn spring-boot:run
- * - OR package the app and run:
+ * - OR build and run:
+ *     mvn package
  *     java -jar target/quick_start.jar
- * 
- * APPLICATON PROPERTIES:
- * ----------------------
- * src/main/resources/application.properties 
- * server.port=9090
- * 
- * URLs:
- * -----
+ *
+ * Test URLs
+ * ---------
  * - http://localhost:9090/
  * - http://localhost:9090/hello
  */
+
 
 package demo;
 
