@@ -15,22 +15,18 @@
  * 
  * KEY CONCEPTS:
  * ------------
- * 1) @SpringBootApplicaton
+ * @SpringBootApplicaton
  *  - Marks this class as the main Spring Boot configuration.
  *  - Enables:
  *      - Auto-configuration
  *      - Component scanning
  *      - Spring Boot defaults
  * 
- * 2) Embedde Server
- *  - No external Tomcat installation is required.
- *  - The application runs as a standalone JAR.
- * 
- * 3) @RestController
- *  - Combines @Controller + @ResponseBody
+ * @RestController
+ *  - Combines Controller + ResponseBody
  *  - Every method return data directly (not a view here).
  * 
- * 4) @GetMapping
+ * @GetMapping
  *  - Maps HTTP GET requests to Java methods.
  * 
  * HOW TO RUN:
