@@ -14,8 +14,8 @@
  *  - Limits concurrency
  *  - Resuses threads efficientlty
  * 
- * TAKEAWAY: ⚠️
- * ---------
+ * MENTAL MODEL:
+ * -------------
  * An ExecutorSerice manages threads for you.
  * You submit tasks, not threads.
  * 
