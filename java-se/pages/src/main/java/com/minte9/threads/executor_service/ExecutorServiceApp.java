@@ -14,7 +14,7 @@
  *  - Limits concurrency
  *  - Resuses threads efficientlty
  * 
- * TAKEAWAY: &#9889;
+ * TAKEAWAY: :b:
  * -----------
  * An ExecutorSerice manages threads for you.
  * You submit tasks, not threads.
