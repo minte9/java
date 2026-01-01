@@ -20,10 +20,10 @@
  * Do NOT use infinite while(true) loops + sleep.
  * With ScheduledExecutorService, periodic scheduling is infinite by default.
  * 
- * MENTAL MODEL:
- * -------------
- * ExecutorService          - run tasks once
- * ScheduledExecutorService - run tasks later or repeatedly
+ * TAKEAWAY: ⚠️
+ * ---------
+ * ExecutorService run tasks once.
+ * ScheduledExecutorService run tasks later or repeatedly.
  */
 
 package com.minte9.threads.executor_service;
