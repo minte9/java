@@ -13,6 +13,12 @@
  *  - Avoids manual thread creation
  *  - Limits concurrency
  *  - Resuses threads efficientlty
+ * 
+ * TAKEAWAY: 🎯
+ * -----------
+ * An ExecutorSerice manages threads for you.
+ * You submit tasks, not threads.
+ * 
  */
 
 package com.minte9.threads.executor_service;
