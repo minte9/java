@@ -7,8 +7,8 @@
  * 
  * START.SPRING.IO
  * ---------------
- * Spring Boot is the most popular way to start Spring projects.
- * It is built on top of the spring framework.
+ * The most popular way to start Spring projects is with Spring Boot.
+ * Spring Boot is built on top of the spring framework.
  * 
  * We can create a new project on start.spring.io and
  * add one dependency (Spring Web).
