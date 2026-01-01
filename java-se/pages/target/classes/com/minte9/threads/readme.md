@@ -44,7 +44,7 @@
 
 
 ### 📌 Thread Safety (Shared State)
-- Threads share mememory - race condition posible.
+- Threads share memory - race condition posible.
 - To avoid data corruption use syncronyzed, locks, or atomic types.
 - Without syncronization, results are unpredictable.
 
@@ -66,7 +66,7 @@ Principle: `Avoid raw` new Thread() in large applications.
 #
 ### 💡 Active Recall Questions
 
-1. What's the difference between `start()` and `run`?
+1. What's the difference between `start()` and `run()`?
 2. Name all thread lifecycle states.
 3. When would you use ExecutorService over raw `Thread`?
 4. Why do threads need syncronization?
