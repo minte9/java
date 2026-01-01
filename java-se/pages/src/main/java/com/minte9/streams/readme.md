@@ -43,4 +43,4 @@ These trigger execution:
 1. What triggers a stream to run?
 2. Why does a stream somethimes do nothing?
 3. Why is forEach dangerous?
-4. Can you reuse a strem? Why not?
+4. Can you reuse a steam? Why not?
