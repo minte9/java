@@ -14,8 +14,8 @@
  *  - Limits concurrency
  *  - Resuses threads efficientlty
  * 
- * TAKEAWAY: U+2B50 ⭐
- * -----------
+ * TAKEAWAY:
+ * ---------
  * An ExecutorSerice manages threads for you.
  * You submit tasks, not threads.
  * 
