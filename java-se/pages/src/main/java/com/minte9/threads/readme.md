@@ -1,18 +1,15 @@
 ## Java Threads
 
-
-
-### 📌 What is a Thread?
+### What is a Thread?
 - A `thread` is the smallest unit of execution in a Java program.
 - Multiple threads can run in the same process and `share memory`.
 
-### 📌 Why Use Threads?
+### Why Use Threads?
 - Perform multiple tasks `concurrently` (UI + background jobs).
 - Improve application `responsiveness`.
 - Make better use of multi-core CPUs.
 
-
-### 📌 How to Create Threads
+### How to Create Threads
 
 1. Extending `Thread`
     
@@ -29,27 +26,27 @@
         new Thread(new MyTask()).start();
 
 
-### 📌 Thread Lifecycle (States)
+### Thread Lifecycle (States)
 - `New` - thread created but not started.
 - `Runnable` - ready/waiting to run.
 - `Running` - actively executing.
 - `Blocked` - waiting for a lock or timeout.
 - `Terminated` - finished execution.
 
-### 📌 Key Methods
+### Key Methods
 - `start()` - lanches new thread
 - `run()` - what the thread executed
 - `sleep()` - pause current thread
 - `join()` - wait for thread to finish
 
 
-### 📌 Thread Safety (Shared State)
+### Thread Safety (Shared State)
 - Threads share mememory - race condition posible.
 - To avoid data corruption use syncronyzed, locks, or atomic types.
 - Without syncronization, results are unpredictable.
 
 
-### 📌 ExecutorService (Thread Pools)
+### ExecutorService (Thread Pools)
 Rather than making raw threads, prefer ExecutorServie:
 - Reuse threads
 - Better performance for many tasks
@@ -60,7 +57,6 @@ Example:
     ExecutorService poll = Executors.newFixedThreadPool(5);
 
 Principle: `Avoid raw` new Thread() in large applications.
-
 
 
 #
