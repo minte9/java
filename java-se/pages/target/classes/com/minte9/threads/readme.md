@@ -2,7 +2,7 @@
 
 
 
-### 🧩 What is a Thread?
+### 📌 What is a Thread?
 - A `thread` is the smallest unit of execution in a Java program.
 - Multiple threads can run in the same process and `share memory`.
 
@@ -11,27 +11,25 @@
 - Improve application `responsiveness`.
 - Make better use of multi-core CPUs.
 
-#
 
-### 🚀 How to Create Threads
+### 📌 How to Create Threads
 
-### 1) Extending `Thread`
-    class MyThread extends Thread {
-        public void run() { .... }
-    }
-    new Thread().start();
+1. Extending `Thread`
+    
+        class MyThread extends Thread {
+            public void run() { .... }
+        }
+        new Thread().start();
 
-### 2) Implementing `Runnable`
+2. Implementing `Runnable`
 
-    class MyTask implements Runnable {
-        public void run() { ... }
-    }
-    new Thread(new MyTask()).start();
+        class MyTask implements Runnable {
+            public void run() { ... }
+        }
+        new Thread(new MyTask()).start();
 
 
-#
-
-### 🧩 Thread Lifecycle (States)
+### 📌 Thread Lifecycle (States)
 - `New` - thread created but not started.
 - `Runnable` - ready/waiting to run.
 - `Running` - actively executing.
@@ -44,7 +42,6 @@
 - `sleep()` - pause current thread
 - `join()` - wait for thread to finish
 
-#
 
 ### 📌 Thread Safety (Shared State)
 - Threads share mememory - race condition posible.
@@ -52,9 +49,7 @@
 - Without syncronization, results are unpredictable.
 
 
-#
-
-### 🚀 ExecutorService (Thread Pools)
+### 📌 ExecutorService (Thread Pools)
 Rather than making raw threads, prefer ExecutorServie:
 - Reuse threads
 - Better performance for many tasks
@@ -64,12 +59,12 @@ Example:
 
     ExecutorService poll = Executors.newFixedThreadPool(5);
 
-`Principle`: avoid raw `new Thread()` in large applications.
+Principle: `Avoid raw` new Thread() in large applications.
+
 
 
 #
-
-## 💡 Active Recall Questions
+### 💡 Active Recall Questions
 
 1. What's the difference between `start()` and `run`?
 2. Name all thread lifecycle states.
