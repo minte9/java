@@ -19,14 +19,17 @@ public class ArraysList {
         grades.add(90);
         grades.add(78);
 
-        System.out.println("Initial: " + grades);  // Initial: [85, 90, 78]
-        System.out.println("Size: " + grades.size());  // Size: 3
+        System.out.println("Initial: " + grades);       // Initial: [85, 90, 78]
+        System.out.println("Size: " + grades.size());   // Size: 3
 
         // Add more later
         grades.add(92);
         grades.add(88);
 
-        System.out.println("Later: " + grades);  // Later: [85, 90, 78, 92, 88]
+        // Modify elements
+        grades.set(4, grades.get(4) + 12);  // 100
+
+        System.out.println("Later: " + grades);         // Later: [85, 90, 78, 92, 100]
         System.out.println("Size: " + grades.size());  // Size: 5
 
     }
