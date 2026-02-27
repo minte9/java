@@ -237,11 +237,12 @@ MessageRepository.java
 
 		@GetMapping("/hello")
 		public String hello() {
-			Message message = new Message("Hello World from Oracle + Hibernate!");
+			Message message = new Message("Hello World from Oracle!");
 			repository.save(message);
 
 			return repository.findById(message.getId())
-					.map(Message::getText)
+					.map(m -> "ID: " + m.getId() + ", Text: " + m.getText())
+					//.map(Message::getText)
 					.orElse("Not found");
 		}
 	}
@@ -267,8 +268,10 @@ First startup takes 1-2 minutes (Oracle initialization).
 	docker compose up --build
 
 	curl http://localhost:8085/api/hello
-	
-	Hello World from Oracle
+		ID: 1, Text: Hello World from Oracle
+
+	curl http://localhost:8085/api/hello
+		ID: 2, Text: Hello World from Oracle
 
 ### Errors
 

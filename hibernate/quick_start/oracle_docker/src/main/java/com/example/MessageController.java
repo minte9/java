@@ -18,6 +18,7 @@ public class MessageController {
         repository.save(message);
         
         return repository.findById(message.getId())
+                //.map(Message::getText)
                 .map(m -> "ID: " + m.getId() + ", Text: " + m.getText())
                 .orElse("Not found");
     }
