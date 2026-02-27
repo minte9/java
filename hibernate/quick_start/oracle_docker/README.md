@@ -135,7 +135,7 @@ We will use docker-compose to start Oracle and Spring Boot.
 	networks:
 	  app-network:
 
-### Imporant
+### Important
 
 In Docker: 
 
