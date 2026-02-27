@@ -273,6 +273,8 @@ First startup takes 1-2 minutes (Oracle initialization).
 	curl http://localhost:8085/api/hello
 		ID: 2, Text: Hello World from Oracle
 
+
+#
 ### Errors
 
 1) Connection refused.
@@ -284,3 +286,148 @@ In docker-compose.yml:
 
 	spring-app:
   		restart: on-failure
+
+#
+### What Hibernate gives you
+
+When you write:
+
+	repository.save(new Message("Hello"));
+
+Hibernate generates:
+
+For Oracle:
+
+	insert into messages (text, id) values (?, ?)
+
+For MySQL
+
+	insert into messages (text) values (?)
+
+For PostgreSQL
+
+	insert into messages (text) values (?) returning id
+
+	and so on ...
+
+You don't write SQL, Hibernate does.  
+It know what SQL to generate, because it uses a Dialect. 
+Hibernate abstracts 
+
+application.properties
+
+	spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+
+#
+### You still need DB knowledge
+
+	- Performance tunning
+	- Indexes
+	- Transactions
+	- Native queries
+	- Production debugging
+
+Hibernate hides syntax, not database concepts.
+
+
+# 
+### What is the role of Repository
+
+The Entity tells Hibernate:
+
+	// This Java class maps to a database table.
+
+	@Entity
+	public class Message { ... }
+
+The Repository tells Spring:
+
+	// Create a data access layer for Message.
+
+	public interface MessageRepository
+			extends JpaRepository<Message, Long> {
+	}
+
+The link between these two is in the generic type Message.
+
+	JpaRepository<Message, Long>
+             	  ^^^^^^^
+		
+	- Message → the Entity class
+	- Long → the type of its @Id
+
+Spring reads this at startup and says:
+
+	Oh, this repository manages Message entities with Long IDs.
+
+Spring automatically creates:
+
+	save()
+	findById()
+	findAll()
+	delete()
+	pagination
+	sorting
+
+You never implement these methods.  
+Spring generates one implementation at runtime using a proxy.  
+
+
+#
+### When Hibernate (ORM) is a Good Choice
+
+1) When you work with business entities
+
+	- Users
+	- Orders
+	- Products
+	- Messages
+	- Invoices
+	- Relationships between objects
+
+	ORM shines.
+
+Base your code looks like:
+
+	order.getCustomer().getAddress().getCity();
+
+Instead of:
+
+	SELECT c.city
+	FROM orders o
+	JOIN customers c ON ...
+
+2) When you want fast development
+
+	- CRUD
+	- Pagination
+	- Sorting 
+	- Transactions
+	- Caching
+
+Whitout writing boilerplate.  
+For typical business apps, this saves massive time.  
+
+
+### When Hibernate is NOT ideal
+
+1) Heavy analytical queries
+
+	- Complex reporting
+	- Materialized views
+	- Heavy aggregations
+	- Optimized SQL tunning
+
+Raw SQL is clearer and often faster. 
+
+### Databases are not switched often
+
+Companies rarely switch from Oracle to PostgreSQL overnight.  
+
+Portability is not the main reason to use Hibernate.  
+
+The real reason is:
+
+	It maps object-oriented code to relational data naturally. 
+
+Hibernate is everywhere in enterprise Java.  
