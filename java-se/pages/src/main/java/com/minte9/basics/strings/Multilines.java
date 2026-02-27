@@ -1,9 +1,12 @@
 /**
- * Span strings on multiple lines
+ * MULTILINES STRINGS
+ * ------------------
+ * Java (before JDK15) does not permit strings to span lines.
  * 
- * Concatenation operator +
- * String.join()
- * Text Block """ (only with JDK15)
+ * We can span strings on multiple lines using:
+ *      - Concatenation operator +
+ *      - String.join()
+ *      - Text Block """ (only with JDK15)
  */
 
 package com.minte9.basics.strings;
