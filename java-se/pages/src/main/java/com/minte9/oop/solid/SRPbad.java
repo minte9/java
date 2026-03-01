@@ -31,9 +31,9 @@ package com.minte9.oop.solid;
 
 public class SRPbad {
     public static void main(String[] args) {
-        Order order = new Order("ORD-1", 150.0);
+        Order2 order = new Order2("ORD-1", 150.0);
 
-        BadRepository<Order> repository = new BadOrderRepository();
+        Repository2<Order2> repository = new OrderRepository2();
         repository.save(order);
         repository.print(order);
             // Order saved:ORD-1
@@ -41,20 +41,20 @@ public class SRPbad {
     }
 }
 
-record Order(String id, double amount) {}
+record Order2(String id, double amount) {}
 
-interface BadRepository<T> {
+interface Repository2<T> {
     void save(T entity);
     void print(T entity);
 }
 
-class BadOrderRepository implements BadRepository<Order> {
+class OrderRepository2 implements Repository2<Order2> {
     @Override
-    public void save(Order order) {
+    public void save(Order2 order) {
         System.out.println("Order saved:" + order.id());
     }
     @Override
-    public void print(Order order) {
+    public void print(Order2 order) {
         System.out.println("Invoice printed: " + order.id() + " / " + order.amount());
     }
 }

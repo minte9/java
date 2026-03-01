@@ -37,8 +37,8 @@ public class SRP {
         repository.save(order);
             // Order saved:ORD-1
 
-        InvoiceService consoleInvoiceService = new ConsoleInvoiceService();
-        consoleInvoiceService.printInvoice(order);
+        InvoiceService<Order> consoleInvoiceService = new ConsoleInvoiceService();
+        consoleInvoiceService.print(order);
             // Invoice printed: ORD-1 / 150.0
     }
 }
@@ -60,12 +60,12 @@ class OrderRepository implements Repository<Order> {
 }
 
 interface InvoiceService<T> {
-    void printInvoice(T entity);
+    void print(T entity);
 }
 
 class ConsoleInvoiceService implements InvoiceService<Order> {
     @Override
-    public void printInvoice(Order order) {
+    public void print(Order order) {
         System.out.println("Invoice printed: " + order.id() + " / " + order.amount());
     }
 }
