@@ -1,6 +1,6 @@
 # SOLID 
 
-Solid is a set of five OOP design principles in order to write 
+Solid is a set of five OOP design principles in order to write  
 clean, maintainable, flexible, and scalable code - expecially in languages like Java.
 
 
