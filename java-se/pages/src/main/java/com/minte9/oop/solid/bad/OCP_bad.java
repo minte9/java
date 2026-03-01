@@ -20,11 +20,11 @@
  * Whenever you see if (type == ...)
  *  - That's usually a smell that OCP can improve the design.
  */
-package com.minte9.oop.solid;
+package com.minte9.oop.solid.bad;
 
-public class OCPbad {
+public class OCP_bad {
     public static void main(String[] args) {
-        BadNotificationService service = new BadNotificationService();
+        Bad_NotificationService service = new Bad_NotificationService();
 
         service.send("email", "Welcome!");
         service.send("sms", "Your code is 1234");
@@ -32,7 +32,7 @@ public class OCPbad {
     }
 }
 
-class BadNotificationService {
+class Bad_NotificationService {
     public void send(String type, String message) {
 
         if (type.equals("email")) {

@@ -27,13 +27,13 @@
  *  - 200 lines of DB logic
  *  - 150 lines of invoice formating
  */
-package com.minte9.oop.solid;
+package com.minte9.oop.solid.bad;
 
-public class SRPbad {
+public class SRP_bad {
     public static void main(String[] args) {
-        Order2 order = new Order2("ORD-1", 150.0);
+        Order order = new Order("ORD-1", 150.0);
 
-        Repository2<Order2> repository = new OrderRepository2();
+        Repository<Order> repository = new Bad_OrderRepository();
         repository.save(order);
         repository.print(order);
             // Order saved:ORD-1
@@ -41,20 +41,20 @@ public class SRPbad {
     }
 }
 
-record Order2(String id, double amount) {}
+record Order(String id, double amount) {}
 
-interface Repository2<T> {
+interface Repository<T> {
     void save(T entity);
     void print(T entity);
 }
 
-class OrderRepository2 implements Repository2<Order2> {
+class Bad_OrderRepository implements Repository<Order> {
     @Override
-    public void save(Order2 order) {
+    public void save(Order order) {
         System.out.println("Order saved:" + order.id());
     }
     @Override
-    public void print(Order2 order) {
+    public void print(Order order) {
         System.out.println("Invoice printed: " + order.id() + " / " + order.amount());
     }
 }

@@ -32,6 +32,7 @@ Too many responsibilities.
 
 Now each class has one responsibility.
 
+#
 
 ## O - Open/Closed Principle (OCP)
 
@@ -65,3 +66,33 @@ Adding new discount types means modifying this class.
     }
 
 Now you can add new discounts without changing existing code.  
+
+#
+
+## L - Liskov Substitution Principle (LSP)
+
+Subtypes must be subsittuable for their base types.  
+
+If class B extends class A, then B should behave like A without breaking expectations.  
+
+### ❌ Bad Example
+
+    class Bird {
+        void fly() { }
+    }
+
+    class Penguin extends Bird {
+        void fly() {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+A penguin is a bird, but it cannot fly - this breaks LSP.
+
+### Better
+
+    interface Bird { }
+
+    interface FlyingBird extends Bird {
+        void fly();
+    }
