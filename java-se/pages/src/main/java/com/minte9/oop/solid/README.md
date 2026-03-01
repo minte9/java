@@ -96,3 +96,66 @@ A penguin is a bird, but it cannot fly - this breaks LSP.
     interface FlyingBird extends Bird {
         void fly();
     }
+
+
+
+### I - Interface Segregation Principle (ISP)
+
+Classes should not be forced to depend on methods that do not use.
+
+### ❌ Bad Example
+
+    interface Worker {
+        void work();
+        void eat();
+    }
+
+A robot doesn't eat.
+
+### Better 
+
+    interface Workable {
+        void work();
+    }
+
+    interface Eatable {
+        void eat();
+    }
+
+Classes implement only what they need.
+
+
+
+### D - Dependency Inversion Principle (DIP)
+
+Classes must depend on abstractions, not on concrete implementations.
+
+### ❌ Bad Example
+
+    class LightBulb { }
+
+    class Switch {
+        LightBulb bulb = new LightBulb();
+    }
+
+Switch is tightly coupled to LightBulb.
+
+### Better 
+
+    interface Switchable {
+        void turnOn();
+    }
+
+    class LightBulb implements Switchable {
+        public void turnOn() { }
+    }
+
+    class Switch {
+        private Switchable device;
+
+        Switch(Switchable device) {
+            this.device = device;
+        }
+    }
+
+Now Switch works with anything that implements Switchable.
