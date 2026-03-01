@@ -125,7 +125,6 @@ Classes implement only what they need.
 
 
 
-# D
 ## Dependency Inversion Principle (DIP)
 
 Classes must depend on abstractions, not on concrete implementations.
