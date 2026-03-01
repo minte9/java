@@ -32,7 +32,7 @@ Too many responsibilities.
 
 Now each class has one responsibility.
 
-#
+
 
 ## O - Open/Closed Principle (OCP)
 
@@ -67,7 +67,7 @@ Adding new discount types means modifying this class.
 
 Now you can add new discounts without changing existing code.  
 
-#
+
 
 ## L - Liskov Substitution Principle (LSP)
 

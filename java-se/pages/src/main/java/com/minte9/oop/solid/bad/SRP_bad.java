@@ -27,6 +27,7 @@
  *  - 200 lines of DB logic
  *  - 150 lines of invoice formating
  */
+
 package com.minte9.oop.solid.bad;
 
 public class SRP_bad {

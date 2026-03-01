@@ -20,6 +20,7 @@
  * Whenever you see if (type == ...)
  *  - That's usually a smell that OCP can improve the design.
  */
+
 package com.minte9.oop.solid.bad;
 
 public class OCP_bad {

@@ -27,6 +27,7 @@
  * 
  * That would give the class MULTIPLE reasons to change.
  */
+
 package com.minte9.oop.solid;
 
 public class SRP {
