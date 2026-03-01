@@ -5,7 +5,8 @@ clean, maintainable, flexible, and scalable code - expecially in languages like 
 
 
 
-## S — Single Responsibility Principle (SRP)
+# S
+## Single Responsibility Principle (SRP)
 
 A class should have only one reason to change.
 
