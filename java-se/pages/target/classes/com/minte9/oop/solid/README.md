@@ -159,3 +159,13 @@ Switch is tightly coupled to LightBulb.
     }
 
 Now Switch works with anything that implements Switchable.
+
+
+## Easy Way to Remember
+
+    Letter	    Principle
+        S	    Single Responsibility
+        O	    Open/Closed
+        L	    Liskov Substitution
+        I	    Interface Segregation
+        D	    Dependency Inversion
