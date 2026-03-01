@@ -4,7 +4,6 @@ Solid is a set of five OOP design principles in order to write
 clean, maintainable, flexible, and scalable code - expecially in languages like Java.
 
 
-
 # S
 ## Single Responsibility Principle (SRP)
 
@@ -35,7 +34,8 @@ Now each class has one responsibility.
 
 
 
-## O - Open/Closed Principle (OCP)
+# O
+## Open/Closed Principle (OCP)
 
 Open for extension, closed for modification.  
 Sofware entities should be open for extension, but closed for modification.  
@@ -70,7 +70,8 @@ Now you can add new discounts without changing existing code.
 
 
 
-## L - Liskov Substitution Principle (LSP)
+# L
+## Liskov Substitution Principle (LSP)
 
 Subtypes must be subsittuable for their base types.  
 
@@ -100,7 +101,8 @@ A penguin is a bird, but it cannot fly - this breaks LSP.
 
 
 
-### I - Interface Segregation Principle (ISP)
+# I
+## Interface Segregation Principle (ISP)
 
 Classes should not be forced to depend on methods that do not use.
 
@@ -127,7 +129,8 @@ Classes implement only what they need.
 
 
 
-### D - Dependency Inversion Principle (DIP)
+# D
+## Dependency Inversion Principle (DIP)
 
 Classes must depend on abstractions, not on concrete implementations.
 
