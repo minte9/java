@@ -1,4 +1,6 @@
 /**
+ * ARRAYLIST - Collections Sort
+ * ----------------------------
  * ArrayList doesn't have a sort method in its own.
  * Insteed, we use Collections.sort(), which works on any List implementation.
  * 
