@@ -5,7 +5,7 @@
  * Each type parameter must have a UNIQUE NAME.
  */
 
-package com.minte9.collections.generics;
+package com.minte9.oop.generics;
 
 public class MultipleTypes {
     public static void main(String[] args) {

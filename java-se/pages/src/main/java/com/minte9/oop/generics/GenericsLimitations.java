@@ -20,7 +20,7 @@
  *      Box<Integer> box = new Box<>();
  */
 
-package com.minte9.collections.generics;
+package com.minte9.oop.generics;
 
 public class GenericsLimitations {
     public static void main(String[] args) {

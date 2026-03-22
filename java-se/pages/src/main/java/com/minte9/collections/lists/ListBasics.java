@@ -1,6 +1,6 @@
 /**
- * ARRAYLIST BASICS - COLLECTIONS
- * ------------------------------
+ * LIST BASICS - COLLECTIONS
+ * -------------------------
  * List is the interface. 
  * ArrayList is an implementation.
  * 
@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class ArrayListBasics {
+public class ListBasics {
    public static void main(String[] args) {
        
         // Create and populate

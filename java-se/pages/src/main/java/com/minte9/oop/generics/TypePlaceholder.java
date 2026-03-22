@@ -24,7 +24,7 @@
  * Java allowes it because generic where added later.
  */
 
-package com.minte9.collections.generics;
+package com.minte9.oop.generics;
 
 public class TypePlaceholder {
 

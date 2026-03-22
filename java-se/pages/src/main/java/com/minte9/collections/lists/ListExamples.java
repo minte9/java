@@ -8,7 +8,7 @@ package com.minte9.collections.lists;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListExamples {
+public class ListExamples {
     public static void main(String[] args) {
 
         // GRADES

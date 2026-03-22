@@ -1,6 +1,6 @@
 /**
- * COLLECTIONS - JCF
- * -----------------
+ * JAVA COLLECTIONS FRAMEWORK - JCF
+ * --------------------------------
  * In Java, Collections are a full arhitecture of interfaces, classes, utilities.
  * They are part of the Java Collection Framework (JCF), located in java.util package.
  * 
@@ -59,11 +59,11 @@
  *   - easy add/remove/find
  */
 
-package com.minte9.collections.collections;
+package com.minte9.collections.framework;
 
 import java.util.*;
 
-public class Collections {
+public class JCF {
     public static void main(String[] args) {
 
         // LIST (ordered, allows duplicates)

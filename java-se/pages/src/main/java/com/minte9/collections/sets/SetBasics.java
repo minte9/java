@@ -1,13 +1,20 @@
 /**
- * HashSet stores UNIQUE elements and offers no sorting.
+ * SET BASICS - COLLECTIONS
+ * ------------------------
+ * Concept:
+ *  - No duplicates allowed
+ *  - Unordered (HashSet)
+ *  - Fast lookups
+ * 
+ * HashSet (more used) uses hasing internally.
  * 
  * To check for duplicates HashSet uses two methods inherited from Object:
- *      - hashCode() for quick access (performance)
- *      - equals() for actual equality check
+ *  - hashCode() for quick access (performance)
+ *  - equals() for actual equality check
  * 
  * The default implementation from Object:
- *      - equals() checks if two references are the SAME OBJECT in memory
- *      - hashCode() generates a number based on memory location
+ *  - equals() checks if two references are the SAME OBJECT in memory
+ *  - hashCode() generates a number based on memory location
  * 
  * This means:
  *      new Song("Imagine", "John Lennon")
@@ -22,19 +29,26 @@ package com.minte9.collections.sets;
 
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-public class HashSets {            
+public class SetBasics {            
     public static void main(String[] args) {     
 
-        HashSet<String> myLHashSet = new HashSet<>();
-        myLHashSet.add("AAA");
-        myLHashSet.add("AAA"); // duplicate
-        myLHashSet.add("BBB");
-        myLHashSet.add("CCC");
+        // Create a set
+        Set<String> set = new HashSet<>();
 
-        System.out.println(myLHashSet);  // [AAA, CCC, BBB]
+        // Add elements
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Apple"); // ignored
+        System.out.println(set);  // [Apple, Banana] (no duplicate)
 
-        HashSet<Song> songs = new HashSet<>();
+        // Check existance
+        boolean exists = set.contains("Apple");  // O(1) fast
+        System.out.println(exists);  // true
+
+        // Custom type
+        Set<Song> songs = new HashSet<>();
         songs.add(new Song("Imagine", "John Lennon"));
         songs.add(new Song("Imagine", "John Lennon")); // duplicate
         songs.add(new Song("Africa", "Toto"));

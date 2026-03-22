@@ -20,7 +20,7 @@ package com.minte9.collections.lists;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListComparition {
+public class ArrayVsArrayList {
     public static void main(String[] args) {
 
         // Fixed vs Dynamic
