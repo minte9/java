@@ -1,6 +1,6 @@
 /**
  * ARRAY LIST- Hourglass sum using subList()
- * *************--
+ * -----------------------------------------
  * The hourglass shape requires:
  *  - 3 numbers from the top row
  *  - 1 number from the middle row
@@ -31,7 +31,7 @@ public class HourglassMax {
         );
 
         // Fist window
-        // ***********--
+        // -----------
         List<Integer> tmp = new ArrayList<>();
         int n = 2;
         tmp.addAll(arr.get(n + 0).subList(0, 3));
@@ -41,7 +41,7 @@ public class HourglassMax {
 
 
         // Loop through windows (4x4 starting points)
-        // **************
+        // ------------------------------------------
         List<Integer> sums = new ArrayList<>();
 
         for (int k=0; k<4; k++) {
@@ -65,7 +65,7 @@ public class HourglassMax {
 
         System.out.println("Sums: " + sums);
         System.out.println("Max: " + max);
-        // *******************
+        // ---------------------------------------------------------
         // Sums: [7, 4, 3, 3, 4, 8, 6, 9, 2, 10, 7, 19, 0, 8, 6, 14]
         // Max: 19
     }
