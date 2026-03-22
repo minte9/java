@@ -7,7 +7,8 @@
  * Arrays are low-level structures, very fast.
  * Arrays are less flexible than ArrayList.
  * 
- * Arrays.copyOf() creates a new array, not just a new reference.
+ * Collections:
+ *  - Arrays.copyOf() creates a new array, not just a new reference.
  */
 
 package com.minte9.collections.arrays;
