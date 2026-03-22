@@ -57,5 +57,16 @@ public class ArrayBasics {
         // Changing the original does not affect the copy
         nums[0] = 999;
         System.out.println("Copy: " + copy[0]);  // 100
+
+        // Array intialization with literals
+        String[] chars = {"a", "b", "c", "d"};
+        System.out.println(chars[0]);  // a
+
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9},
+        };
+        System.out.println(matrix[1][2]);  // 6
     }
 }
