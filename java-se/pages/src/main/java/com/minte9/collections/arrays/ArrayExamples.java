@@ -7,8 +7,8 @@ package com.minte9.collections.arrays;
 public class ArrayExamples {
     public static void main(String[] args) {
 
-        // GRADES - Known, fixed number of grades - exactly 5
-        // --------------------------------------------------
+        // GRADES - Fixed number of grades - exactly 5
+        // -------------------------------------------
         int[] grades = new int[5];
         grades[0] = 85;
         grades[1] = 90;
@@ -22,8 +22,8 @@ public class ArrayExamples {
             System.out.print(g + " ");  // 85 90 78 92 88
         }
         
-        // WEEK DAYS - Initialized with literals - week days are fixed
-        // -----------------------------------------------------------
+        // WEEK DAYS - Fixed numer of week days
+        // ------------------------------------
         String days[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         System.out.println(
             "Week days: " + days.length // Week days: 7
