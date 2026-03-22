@@ -1,87 +1,48 @@
 /**
  * SET BASICS - COLLECTIONS
  * ------------------------
- * Concept:
+ * Set is a Collection of UNIQUE elements
+ * 
+ * Key characteristics:
  *  - No duplicates allowed
- *  - Unordered (HashSet)
- *  - Fast lookups
+ *  - No index (no get(0))
+ *  - Fast lookups (especially HashSet)
  * 
- * HashSet (more used) uses hasing internally.
- * 
- * To check for duplicates HashSet uses two methods inherited from Object:
- *  - hashCode() for quick access (performance)
- *  - equals() for actual equality check
- * 
- * The default implementation from Object:
- *  - equals() checks if two references are the SAME OBJECT in memory
- *  - hashCode() generates a number based on memory location
- * 
- * This means:
- *      new Song("Imagine", "John Lennon")
- *      new Song("Imagine", "John Lennon")
- * are considered DIFFERENT unless we oberride Object's methods.
- * 
- * Overriding equals() and hashCode() is optional.
- * Java allows you to rely on the default behavior.
+ * Implementations:
+ *  - HashSet (more uses), fastest, no order quaranted
  */
 
 package com.minte9.collections.sets;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class SetBasics {            
     public static void main(String[] args) {     
 
         // Create a set
-        Set<String> set = new HashSet<>();
+        Set<String> fruits = new HashSet<>();
 
         // Add elements
-        set.add("Apple");
-        set.add("Banana");
-        set.add("Apple"); // ignored
-        System.out.println(set);  // [Apple, Banana] (no duplicate)
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Apple"); // ignored
+        fruits.add("Orange");
+        System.out.println(fruits);  // [Apple, Banana, Orange] (no duplicate)
 
         // Check existance
-        boolean exists = set.contains("Apple");  // O(1) fast
+        boolean exists = fruits.contains("Apple");  // O(1) fast
         System.out.println(exists);  // true
 
-        // Custom type
-        Set<Song> songs = new HashSet<>();
-        songs.add(new Song("Imagine", "John Lennon"));
-        songs.add(new Song("Imagine", "John Lennon")); // duplicate
-        songs.add(new Song("Africa", "Toto"));
-        songs.add(new Song("Africa", "Weezer"));  // not a duplicate
+        // Remove elements
+        fruits.remove("Orange");
+        System.out.println("After removal: " + fruits);  // [Apple, Banana]
 
-        System.out.println(songs); 
-            // Imagine (John Lennon), Africa (Weezer), Africa (Toto)
-
-    }
-}
-
-class Song {
-    private String title;
-    private String artist;
-
-    public Song (String title, String artist) {
-        this.title = title;
-        this.artist = artist;
-    }
-
-    @Override
-    public String toString() {
-        return title + " (" + artist + ")";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        Song other = (Song) o;
-        return title.equals(other.title) && artist.equals(other.artist);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, artist);
+        // Iterate through elements
+        for (String f : fruits) {
+            System.out.println(f);
+                // Apple
+                // Banana
+        }
     }
 }
