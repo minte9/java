@@ -34,12 +34,12 @@ public class EqualStacks {
             }
 
             if (s1 >= s2 && s1 >= s3) {
-                s1 -= d1.pollFirst();
+                s1 -= d1.poll();
             } else
             if (s2 >= s1 && s2 >= s3) {
-                s2 -= d2.pollFirst();
+                s2 -= d2.poll();
             } else {
-                s3 -= d3.pollFirst();
+                s3 -= d3.poll();
             }
         }
 
