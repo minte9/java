@@ -23,7 +23,7 @@
  * describing a pipeline.
  */
 
-package com.minte9.streams.iteration_styles;
+package com.minte9.streams.streams_basics;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,28 +33,19 @@ public class Laziness {
         
         List<Integer> numbers = Arrays.asList(1, 2, 3);
 
-        // ---------------------------------------
-        // No terminal operation - nothing happens
-        // ---------------------------------------
+        // No terminal operation - nothing happens (no output)
         numbers.stream()
                .filter(n -> {
                     System.out.println("filter: " + n);
                     return n <= 2;
                });
-        // No output due to lazy evaluation
 
-        // --------------------------------------
         // Terminal operation triggers evaluation
-        // --------------------------------------
         numbers.stream()
                .filter(n -> {
                     System.out.println("filter: " + n);
                     return n <= 2;
                })
-               .count();
-        // Output:
-        // filter: 1
-        // filter: 2
-        // filter: 3        
+               .count();  // Output: 1 2 3      
     }
 }
