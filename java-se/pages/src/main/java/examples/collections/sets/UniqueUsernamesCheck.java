@@ -1,4 +1,5 @@
-/**
+/** USERNAME CHECK - PROBLEM
+ * -------------------------
  * Preventing Duplicate Logins / Usernames
  * 
  * Imagine you have a system where new users sign up with a username.
@@ -11,10 +12,11 @@
 package examples.collections.sets;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class UniqueUsernamesCheck {
     public static void main(String[] args) {
-        HashSet<String> usernames = new HashSet<>();
+        Set<String> usernames = new HashSet<>();
 
         // Existing usernames in system
         usernames.add("johndoe");
@@ -24,7 +26,7 @@ public class UniqueUsernamesCheck {
         String newUser = "johndoe";
 
         if (usernames.contains(newUser)) {
-            System.out.println("❌ Username already taken!");
+            System.out.println("❌ Username already taken!");  // Username already taken
         } else {
             usernames.add(newUser);
             System.out.println("✅ Username created!");

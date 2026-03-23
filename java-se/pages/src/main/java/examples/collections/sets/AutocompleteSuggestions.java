@@ -1,15 +1,17 @@
 /**
- * Autocomplete Suggestions (Alphabetically Sorted List)
+ * AUTOCOMPLETE SUGGESTIONS - PROBLEM
+ * ----------------------------------
+ * We use an alphabetically Sorted List.
  * 
  * The search engine needs: 
- *      - no duplicates
- *      - sorted list
- *      - fast insert and retrival
+ *  - no duplicates
+ *  - sorted list
+ *  - fast insert and retrival
  * 
  * Why TreeSet: 
- *      - sorted ordering all the time
- *      - unique values
- *      - logarithmic performance still very good
+ *  - sorted ordering all the time
+ *  - unique values
+ *  - logarithmic performance still very good
  */
 
 package examples.collections.sets;
@@ -19,6 +21,7 @@ import java.util.TreeSet;
 
 public class AutocompleteSuggestions {
     public static void main(String[] args) {
+        
         Set<String> suggestions = new TreeSet<>();
         suggestions.add("Laptop");
         suggestions.add("Lamp");
