@@ -12,6 +12,9 @@
  * 
  * Collecting:
  *  - Convert stream into a collection or other result
+ * 
+ * Reduce:
+ *  - Combine elements into a single result
  *  
  */
 package com.minte9.streams.streams_basics;
@@ -20,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamsOperations {
+public class CommonOperations {
     public static void main(String[] args) {
         
         // Filter
@@ -53,5 +56,10 @@ public class StreamsOperations {
                  .filter(name -> name.startsWith("j"))
                  .collect(Collectors.toList());
         System.out.println(filtered);  // [john, jane, jack]
+
+        // Reduce
+        sum = numbers.stream()
+                     .reduce(0, (a, b) -> a + b);
+        System.out.println("Sum: " + sum);  // 21
     }
 }
