@@ -1,6 +1,6 @@
 # Java Maven
 
-### 📌 What Maven is?
+### What Maven is?
 Maven is a build and `dependency management` tool for Java projects.
 
 Maven manages `three` things:
@@ -8,7 +8,7 @@ Maven manages `three` things:
 - Dependencies
 - Build lifecycle
 
-### 📌 Standard Maven Structure
+### Standard Maven Structure
 Maven expect this structure - don't fight it.
 
     project/
@@ -21,14 +21,14 @@ Maven expect this structure - don't fight it.
             ├─ java/
             └─ resources/
 
-### 📌 Pom.xml
+### Pom.xml
 Think to pom.xml as a project `contract`.
 - Project metadata
 - Dependency list
 - Build instructions
 
 
-### 📌 Dependencies
+### Dependencies
 You declare `what you want`, Maven gets it.
 
     <dependency>
@@ -38,12 +38,12 @@ You declare `what you want`, Maven gets it.
     </dependency>
 
 
-### 📌 Rules
+### Rules
 - You don't download `jars` manually
 - Maven `resolves` transitive dependencies
 - Dependencies to to local `.m2` repo
 
-### 📌 Common Commands
+### Common Commands
 
     mvn clean -> deletes target/
     mvn compile -> compiles code
@@ -53,12 +53,12 @@ You declare `what you want`, Maven gets it.
 
 Rule: Running a phase runs `all` phases before it.
 
-### 📌 Install
+### Install
 - Builds your project and copies the resulting `artifact` into your local Maven repository.
 - Other `local projects` can use it as a dependency.
 
 #
-### 💡 Active Recall Questions
+### Active Recall Questions
 1. What `problem` does Maven solve?
 2. What is `pom.xml`?
 3. Why `shouldn't` you manage jars manually?
