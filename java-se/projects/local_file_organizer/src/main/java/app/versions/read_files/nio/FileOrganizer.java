@@ -2,7 +2,8 @@
  * READ FILES - FROM A DIRECTORY - NIO
  * --------------------------------------------------
  * Modern way, how it should be used in real projects.
- * Why this is better:
+ * 
+ * Better:
  *  - Clear exception handling
  *  - Safer resource management
  *  - More powerful API

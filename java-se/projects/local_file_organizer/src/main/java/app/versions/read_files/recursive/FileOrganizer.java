@@ -1,6 +1,6 @@
 /**
- * READ FILES - NIO / RECURSIVE
- * --------------------------------------------------
+ * READ FILES - RECURSIVE
+ * ----------------------
  * Scan all subfolders
  */
 

@@ -1,16 +1,14 @@
 /**
  * READ FILES - FROM A DIRECTORY
- * ---------------------------
+ * -----------------------------
  * Concepts used:
  *  - Classes / Objects
- *  - Arrays
  *  - Loops
- *  - Exceptions (indirectly)
  *  - Strings
  *
  * Limitations:
  *  - Weak error handling
- *  - Hard to recurse
+ *  - Hard to apply recursively
  *  - Old API 
  */
 
@@ -28,6 +26,7 @@ public class FileOrganizer {
         }
 
         File[] files = dir.listFiles();
+        System.out.println(files);
         if (files == null) {
             return;
         }

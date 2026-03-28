@@ -1,10 +1,10 @@
 /**
  * READ FILES / GROUP BY EXTENSION - STREAMS
  * ------------------------------------------
- * Stream version (recommended for production)
+ * Stream version (production).
  * This is exactly how production Java code is written.
  * 
- * You just combined:
+ * You combine:
  *  - Files
  *  - Strings
  *  - Maps
@@ -13,12 +13,12 @@
  *  - Method references
  *  - Static methods
  * 
- * What You Just Mastered:
+ * You mastere:
  *  - Stream ordering
- * - Predicate filtering
- * - Set for O(1) lookups
- * - Real-world stream pipelines
- * - Overall complexity is O(n)
+ *  - Predicate filtering
+ *  - Set for O(1) lookups
+ *  - Real-world stream pipelines
+ *  - Overall complexity is O(n)
  */
 
 package app.versions.group_by.streams;

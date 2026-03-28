@@ -22,11 +22,7 @@ public class FileOrganizer {
     public static void main(String[] args) {
 
         File dir = new File(System.getProperty("user.home"), "Downloads");
-
-        if (!dir.exists() || !dir.isDirectory()) {
-            System.out.println("Not a directory");
-            return;
-        }
+        if (!dir.exists() || !dir.isDirectory()) return;
 
         File[] files = dir.listFiles();
         if (files == null) return;
