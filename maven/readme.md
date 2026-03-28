@@ -1,9 +1,9 @@
-# Java Maven
+## Apache Maven
 
 ### What Maven is?
-Maven is a build and `dependency management` tool for Java projects.
+Maven is a build and `dependency management` tool for Java projects.  
+Maven manages `three` things:  
 
-Maven manages `three` things:
 - Project structure
 - Dependencies
 - Build lifecycle
