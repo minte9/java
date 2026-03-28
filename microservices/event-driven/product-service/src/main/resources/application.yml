@@ -1,0 +1,32 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: product-service
+    
+  cloud:
+    function:
+      definition: product
+      
+    stream:
+      defaultBinder: rabbit
+      bindings:
+        product-out-0:
+          destination: products
+      rabbit:
+        bindings:
+          product-out-0:
+            producer:
+              autoBindDlq: true
+
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: product-db
+
+logging:
+  level:
+    root: INFO
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG

@@ -1,0 +1,29 @@
+services:
+
+  product-service:
+    image: product-service:1.0
+    container_name: product-service
+    ports:
+      - "7001:7001"
+
+  review-service:
+    image: review-service:1.0
+    container_name: review-service
+    ports:
+      - "7002:7002"
+
+  recommendation-service:
+    image: recommendation-service:1.0
+    container_name: recommendation-service
+    ports:
+      - "7003:7003"
+
+  product-composite-service:
+    image: product-composite-service:1.0
+    container_name: product-composite-service
+    ports:
+      - "7000:7000"
+    depends_on:
+      - product-service
+      - review-service
+      - recommendation-service

@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function crono() {
+            setTimeout(function() {
+                $.ajax({
+                    url: "http://localhost:8080/getcurrtime"
+                }).then(function(data){
+                    $("#crono").html(data.time);
+                });
+
+                crono();
+            }, 1000);
+        }
+        crono();
+    });
+
+    function start() {
+        $.ajax({ 
+            url: "http://localhost:8080/start"
+        });
+    }
+
+    function stop() {
+        $.ajax({
+            url: "http://localhost:8080/stop"
+        });
+    }
+</script>
+</head>
+<body>
+    Get current time (with Ajax):  
+
+    <a href='javascript: start();'>Start</a> | 
+    <a href='javascript: stop();'>Stop</a>
+
+    <div id='crono'></div>
+</body>
+</html>
