@@ -63,3 +63,9 @@ Rule: Running a phase runs `all` phases before it.
 2. What is `pom.xml`?
 3. Why `shouldn't` you manage jars manually?
 4. What happen when you run `mvn package`?
+
+### Answers
+1. Manages project dependencies, builds, and standardizes project structure/automation.
+2. The Project Object Model file — defines dependencies, build configuration, plugins, and project metadata.
+3. It’s error-prone, hard to maintain versions, and difficult to handle transitive dependencies.
+4. Compiles the code, runs tests, and packages the app into a distributable (e.g., JAR/WAR).
