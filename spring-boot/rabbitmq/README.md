@@ -124,6 +124,36 @@ RabbitConfig.java
 This class defines RabbitMQ infrastructure as Spring bean.
 
 ~~~java
+/**
+ * RabbitConfig
+ * ------------
+ * This class defines RabbitMQ infrastructure as Spring bean.
+ * 
+ * Core RabbitMQ concepts used here:
+ * 
+ * 1) Queue
+ *    A queue stores messages until they are consumed.
+ * 
+ * 2) Exchnage
+ *    Producers usually send messages to an exchange, not directly to a queue.
+ *    The exchange decides where the messages goes.
+ * 
+ * 3) Routing key
+ *    A text value attached to the message by the producer.
+ *    The exchange uses it to decide which queue should receive the message.
+ * 
+ * 4) Binding
+ *    A rule connecting an exchange to a queue.
+ * 
+ * Why this config?
+ *  - keeps messaging setup centralized
+ *  - Spring can auto-create these objects in RabbitMQ on startup
+ * 
+ * Notes:
+ *  - Queue durable true - means that queue definition survives broker restart
+ *  - DirectExchange - routes messages to queue by exact routing key match
+ */
+
 package com.example.config;
 
 import org.springframework.amqp.core.Binding;
@@ -169,6 +199,9 @@ public class RabbitConfig {
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
+
+            // Tells Spring AMQP to serialize Java objects as JSON when sending,
+            // and deserialize JSON back into Java objcets when receiving.
     }
 }
 ~~~

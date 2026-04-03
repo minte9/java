@@ -73,5 +73,8 @@ public class RabbitConfig {
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
+
+            // Tells Spring AMQP to serialize Java objects as JSON when sending,
+            // and deserialize JSON back into Java objcets when receiving.
     }
 }
