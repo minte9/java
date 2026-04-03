@@ -78,7 +78,7 @@ Main dependencies:
 - spring-boot-maven-plugin / Allows us to package the app as an executable JAR  
 
 
- ### 4) Main application class
+### 4) Main application class
 
 DemoApplication.java  
 
