@@ -213,6 +213,21 @@ model/RabbitMessage.java
 A simple POJO (Plain Old Java Object) used as the message payload.
 
 ~~~java
+/**
+ * RabbitMessage
+ * -------------
+ * This is a simple POJO (Plain Old Java Object) 
+ * used as the message payload.
+ * 
+ * Why have a class instead of sending raw String?
+ *  - more realistic
+ *  - easier to extend later
+ *  - easier to map from JSON request body
+ * 
+ * String / Jackson can convert JSON <-> Java object automatically 
+ * as long as getters/setters and default constructor exist. 
+ */
+
 package com.example.model;
 
 public class RabbitMessage {
@@ -244,9 +259,23 @@ Send messages to RabbitMQ.
 RabbitTemplate is the main helper class provided by Spring AMQP.
 
 ~~~java
+/**
+ * MessageProducer
+ * ---------------
+ * Send messages to RabbitMQ.
+ * 
+ * Why @Service?
+ *  - Marks this class as a Spring-managed bean
+ *  - Indicates business/service layer role
+ * 
+ * RabbitTemplate:
+ *  - Main helper class provided by Spring AMQP for sending messages.
+ */
 package com.example.messaging;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
+
 import com.example.config.RabbitConfig;
 import com.example.model.RabbitMessage;
 
