@@ -8,14 +8,14 @@
  *      - target/classes/Class.class
  * 
  * Key Points:
- *  - Every java program starts in main() method.
- *  - Return type `void` means there is no returned value.
- *  - Every statement must end in semicolon.
+ *  - Every java program starts in main() method
+ *  - Return type `void` means there is no returned value
+ *  - Every statement must end in semicolon
  * 
  * Objects:
- *  - A class is a blueprint for an object.
- *  - Instance variables (fields) is what an object knows.
- *  - Methods are what an object does.
+ *  - A class is a blueprint for an object
+ *  - Instance variables (fields) is what an object knows
+ *  - Methods are what an object does
  * -----------------------------------
  */
 
