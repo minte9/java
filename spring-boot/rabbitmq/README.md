@@ -72,18 +72,10 @@ This way we can run the whole demo with one command.
 
 Main dependencies:
 
-- spring-boot-starter-web  
-    - Used to expose HTTP endpoints (REST API)
-
-- spring-boot-starter-amqp   
-    - Used for RabbitMQ integration  
-    - AMQP = Advanced Message Queuing Protocol  
-
-- spring-boot-starter  
-    - Core Spring Boot basics
-
-- spring-boot-maven-plugin  
-    - Allows us to package the app as an executable JAR  
+- spring-boot-starter-web  / Used to expose HTTP endpoints (REST API)
+- spring-boot-starter-amqp / Used for RabbitMQ integration (AMQP = Advanced Message Queuing Protocol)
+- spring-boot-starter / Core Spring Boot basics
+- spring-boot-maven-plugin / Allows us to package the app as an executable JAR  
 
 
  ### 4) Main application class
