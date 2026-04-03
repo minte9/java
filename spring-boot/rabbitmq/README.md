@@ -1,6 +1,4 @@
-## Spring Boot + RabbitMQ
-
-### Simple minimal example
+## Spring Boot + RabbitMQ / Simple minimal example
 
 It shows:
 
