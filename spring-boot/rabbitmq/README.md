@@ -398,3 +398,18 @@ And in app logs you should see:
 >>> PRODUCER sent message: Hello RabbitMQ from Spring Boot
 <<< CONSUMER received message: Hello RabbitMQ from Spring Boot
 ~~~
+
+RabbitMQ’s UI is not beginner-friendly at all the first time.   
+Look at Queus and Streams and click demo.queue  
+
+Important counters:
+
+- Ready:
+    - Messages waiting in queue
+    - NOT yet consumed
+- Unacked
+    - Messages being processed by consumer
+    - Not yet confirmed
+
+In this app (without the slow down trick), these will often be 0  
+because the messages are consumed instantly.  
