@@ -8,6 +8,9 @@
 
 ### 2. Annotations
 
+- Annotation mechanism
+- What Spring interprets
+
 ### 3. Dependency Injection (DI)
 
 - Constructor injection (preferred)
