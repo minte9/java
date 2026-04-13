@@ -1,8 +1,8 @@
 # Spring
 
-## Spring Framework
+## 1. Spring Framework
 
-- Inversion of Control (IoC)
-- Annotations
-- Dependency Injection (DI)
-- Beans
+- 1.1 Inversion of Control (IoC)
+- 1.2 Annotations
+- 1.3 Dependency Injection (DI)
+- 1.4 Beans
