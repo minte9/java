@@ -12,7 +12,7 @@
     <groupId>com.example.ioc</groupId>
     <artifactId>demo</artifactId>
     <version>1.0</version>
-    <name>context</name>
+    <name>bean_lifecycle</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
