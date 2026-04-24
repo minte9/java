@@ -2,12 +2,12 @@
 
 There are `two ways` to create a new thread of execution.  
 One way is to declare a class as a subclass of `Thread`.  
-The `recommended` is to implement Runnable.  
+The `recommended` one is to implement Runnable.  
 
 ### Extending Thread class
 
 The Thread class implements Runnable interface.  
-The subclass should override the `run` method of class Thread.  
+The subclass should override the `run` method of the interface.    
 
  ~~~java
 package threads.creating_threads;
@@ -66,8 +66,25 @@ class Worker extends Thread { // Look Here
 
 ### Implementing Runnable
 
-The recommended alternativ (modern Java) is to implement Runnable directly.  
-This shows `true concurrency` - orders are prepared in parallel, not sequentially.  
+Java supports single inheritance (you can extend only one class).  
+Interface implementation allows `better` design and reuse.
+
+The recommended alternativ (`modern Java`) is to implement Runnable directly.  
+
+Runnable `separates`:
+- what should run -> Runnable (task)
+- how it runs -> Thread (execution)
+
+Runnable is a `functional` interface.
+
+It has a `single` abstract method run().
+This makes it compatible with:
+- anonymous classes
+- lambda expressions (Java 8+)
+
+Runnable represents a task, `not` a thread.  
+Lambdas make Runnable concise.  
+Execution order is unpredictable. 
 
 ~~~java
 /**
@@ -82,6 +99,8 @@ This shows `true concurrency` - orders are prepared in parallel, not sequentiall
  * In Java:
  *  - The task = Runnable
  *  - The worker = Thread
+ * 
+ * This shows true concurrency - orders are prepared in parallel, not sequentially.  
  */
 
 package threads.creating_threads;
@@ -136,15 +155,4 @@ class OrderPreparation implements Runnable {
     }
 }
 ~~~
-
-### Thread Stack
-
-Threads are lightweight `units` of execution within a program.  
-Multiple threads can run concurrently within the same program.  
-
-Threads `share` the same memory and resources.    
-Threads allows tasks to be done in parallel or more efficiently.  
-
-A thread stack si the `private memory area` used by a single thread to store method calls.  
-Threads can execute methods independently without interfering with each other's local variables.  
 
