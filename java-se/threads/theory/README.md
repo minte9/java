@@ -5,7 +5,7 @@ Threads share the same memory (heap), but each thread has:
 - its own call stack
 - its own execution path
 
-Every Java application starts with a single thread, the main thread.
+Every Java application starts with a single thread, the main thread.  
 The main thread starts execution at main().
 
 ~~~
