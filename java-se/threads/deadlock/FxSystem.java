@@ -113,7 +113,7 @@ class Account {
     }
 
     public void withdraw(int amount) {
-        balance -= amount;
+        balance -= amount;  // DB transaction in real-systems
     }
 
     public void deposit(int amount) {
