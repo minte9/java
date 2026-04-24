@@ -1,23 +1,7 @@
-
-/**
- * THREAD SLEEP vs JOIN
- * ------------------------------
- * They solve different problems.
- * 
- * NOTES:
- * ------
- * sleep() pauses the current thread.
- * join() waits for another thread to finish.
- * 
- * Both throw InterruptedException.
- * Prefere join() for correctness. 
- */
-
-package com.minte9.threads.thread_lifecycle;
+package threads.thread_lifecycle;
 
 public class SleepVsJoin {
-    public static void main(String[] args) 
-            throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         
         Thread worker = new Thread(() -> {
             try {
@@ -28,7 +12,7 @@ public class SleepVsJoin {
 
         worker.start();
 
-        // ❌ This pauses main, but does NOT guarantee worker is done
+        // This pauses main, but does NOT guarantee worker is done
         Thread.sleep(500);
         System.out.println("After sleep");
 

@@ -1,19 +1,4 @@
-/**
- * THREAD STOP - COOPERATIVE CANCELLATION
- * ------------------------------------------
- * You might need to stop a thread on runtime.
- * 
- * Threads stop by cooperating, not by force.
- * A shared flag is used to signal termination.
- * 
- * RULES:
- * -----
- *  1) Threads should stop themselves - never be stopped externally.
- *  2) Shared state between threads must be visible (volatile, synchronization).
- *  3) Timing (sleep) is NOT synchronization.
- */
-
-package com.minte9.threads.thread_lifecycle;
+package threads.thread_lifecycle;
 
 public class ThreadStop {
     public static void main(String[] args) throws InterruptedException {
