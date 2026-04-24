@@ -14,6 +14,13 @@ Threads share the same memory (heap), but each thread has:
 Every Java application starts with a `single thread`, the main thread.  
 The main thread starts execution at main().
 
+When a new thread is `started`: 
+- a new call stack is created
+- execution begin at run()
+
+Calling start creates a new thread.  
+Calling run directly `does not` create a thread.  
+
 ~~~java
  public static void main(String[] args) {
     
@@ -23,23 +30,11 @@ The main thread starts execution at main().
 
     // other threads
     Thread w1 = new Worker();
+    Thread w2 = new Worker();
     w1.start();
-
-    // with lambdas
-    Runnable task = () -> {
-        System.out.println(Thread.currentThread().getName());  // Thread-0
-    };
-    Thread t = new Thread(task, "Task-1");
-    t.start();
+    w2.start();
 }
 ~~~
-
-When a new thread is `started`: 
-- a new call stack is created
-- execution begin at run()
-
-Calling start creates a new thread.  
-Calling run directly `does not` create a thread.  
 
 ### Implementing Runnable
 
@@ -61,4 +56,15 @@ This makes it compatible with:
 
 Runnable represents a task, `not` a thread.  
 Lambdas make Runnable concise.  
-Execution order is unpredictable.  
+Execution order is unpredictable. 
+
+~~~java
+ public static void main(String[] args) {
+    
+    Runnable task = () -> {
+        System.out.println(Thread.currentThread().getName());  // Thread-0
+    };
+    Thread t = new Thread(task, "Task-1");
+    t.start();
+}
+~~~
