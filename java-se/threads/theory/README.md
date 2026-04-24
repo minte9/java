@@ -8,7 +8,7 @@ Threads share the same memory (heap), but each thread has:
 Every Java application starts with a `single thread`, the main thread.  
 The main thread starts execution at main().
 
-~~~
+~~~java
  public static void main(String[] args) {
     
     // main thread
