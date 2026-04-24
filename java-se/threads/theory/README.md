@@ -47,3 +47,72 @@ class Worker extends Thread {
 }
 ~~~
 
+### When to use Threads
+
+Use threads when you need `multiple` things to make progress at the same time.  
+
+1. Use threads when the task `waits` a lot (good case).  
+
+~~~java
+// Waiting for network, database, files, APIs, messages, etc.
+
+callBankApi();
+readLargeFile();
+processRabbitMqMessage();
+queryDatabase();
+~~~
+
+2. Use threads when work can run `independently` (good case).   
+But only if shared data is protecte correctly.  
+
+~~~java
+// Each transaction can be processed independently
+processTransaction(tx1);
+processTransaction(tx2);
+processTransaction(tx3);
+
+synchronized (account) {
+    account.withdraw(amount);
+}
+~~~
+
+3. Use threads for `background` work (good case).  
+The user or server should not wait unnecessary.  
+
+~~~java
+// Do not block the main application
+sendEmail();
+generateReport();
+writeAuditLog();
+~~~
+
+### When to NOT use threads
+
+1. Do not use threads when code `must` happen in order (bad case).  
+This sequence has strict order, threads may make it harder and unsafe.  
+
+~~~java
+validateOrder();
+chargeCard();
+shipProduct();
+~~~
+
+2. Do `not` use raw threads for many tasks.  
+For real application prefer `ExecutorService`.    
+Because ExecutorService controls `how many` threads are created.  
+
+~~~java
+new Thread(task).start();  // NOK
+new Thread(task).start();
+new Thread(task).start();
+~~~
+~~~java
+ExecutorService executor = Executors.newFixedThreadPool(10);  // OK
+executor.submit(task);
+~~~
+
+3. For backend Java/Spring Boot, you usually do not manually create threads.  
+Servers like Tomcat already use thread pools to handle HTTP requests.  
+
+You use threads more directly for background jobs, message consumers, 
+batch processing, or stress-test clients.
