@@ -12,7 +12,7 @@
  *  - The worker = Thread
  */
 
-package main.java.com.minte9.threads.creating_threads;
+package threads.creating_threads;
 
 public class Implementing {  // Restaurant App
     public static void main(String[] args) {

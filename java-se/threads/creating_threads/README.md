@@ -10,6 +10,8 @@ The Thread class implements Runnable interface.
 The subclass should override the `run` method of class Thread.  
 
  ~~~java
+package threads.creating_threads;
+
 public class Extending {
     public static void main(String[] args) {
 
@@ -62,7 +64,6 @@ class Worker extends Thread { // Look Here
 }
 ~~~
 
-
 ### Implementing Runnable
 
 The recommended alternativ (modern Java) is to implement Runnable directly.  
@@ -82,6 +83,8 @@ This shows `true concurrency` - orders are prepared in parallel, not sequentiall
  *  - The task = Runnable
  *  - The worker = Thread
  */
+
+package threads.creating_threads;
 
 public class Implementing {  // Restaurant App
     public static void main(String[] args) {
@@ -133,7 +136,6 @@ class OrderPreparation implements Runnable {
     }
 }
 ~~~
-
 
 ### Thread Stack
 
