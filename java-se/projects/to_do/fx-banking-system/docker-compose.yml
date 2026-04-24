@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: fx-postgres
+    environment:
+      POSTGRES_DB: fxbank
+      POSTGRES_USER: fxuser
+      POSTGRES_PASSWORD: fxpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - fx-postgres-data:/var/lib/postgresql/data
+volumes:
+  fx-postgres-data:

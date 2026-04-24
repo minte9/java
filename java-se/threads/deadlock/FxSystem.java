@@ -8,16 +8,6 @@
  * Solution:
  *  - Always lock accounts in a consistent order.
  *  - Here we lock by account ID: smaller first, bigger second.
- * 
- * Real systems:
- *  - This is just an example (for simulations)
- *  - A bank is an ecosystem of services, it uses database transactions!
- * 
- * Transaction (PostgreSQL, Oracle):
- *   BEGIN;
- *   SELECT balance FROM account WHERE id=1 FOR UPDATE;
- *   UPDATE account SET balance = balance - 100;
- *   COMMIT;
  */
 
 public class FxSystem {
