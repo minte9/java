@@ -1,6 +1,12 @@
 ### What is a Thread?
 
 A thread is a lightweight `unit of execution` inside a process.  
+
+Processes are isolated (separate memory space).  
+Threads run inside the `same process` and share memory.  
+
+From a user's perspective, threads may feel like separate programs.  
+
 Threads share the same memory (heap), but each thread has:  
 - its own call stack
 - its own execution path
@@ -28,14 +34,6 @@ The main thread starts execution at main().
 }
 ~~~
 
-### Process vs Thread
-
-Processes are isolated (separate memory space).  
-Threads run inside the `same process` and share memory.  
-From a user's perspective, threads may feel like separate programs.  
-
-### Run
-
 When a new thread is `started`: 
 - a new call stack is created
 - execution begin at run()
@@ -53,8 +51,6 @@ Interface implementation allows `better` design and reuse.
 Runnable `separates`:
 - what should run -> Runnable (task)
 - how it runs -> Thread (execution)
-
-### Functional Interface
 
 Runnable is a `functional` interface.
 
