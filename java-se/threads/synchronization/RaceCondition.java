@@ -18,8 +18,8 @@ public class RaceCondition {
         /* 
             Beta sess balance : 100
             Alpha sess balance : 100
-            Alpha withdraws 80, new balance = -60
             Beta withdraws 80, new balance = 20
+            Alpha withdraws 80, new balance = -60
         */
     }    
 }

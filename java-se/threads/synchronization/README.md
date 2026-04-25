@@ -1,12 +1,6 @@
 ### Race condition
 
 A race condition occurs when the outcome depends on the `timing of` threads.  
-Final balance should be `70`, but ends up 90.  
-
-Thread A reads balance = 100
-Thread B reads balance = 100
-Thread A writes balance = 80
-Thread B writes balance = 80
 
 ~~~java
 /**
@@ -29,8 +23,8 @@ public class RaceCondition {
         /* 
             Beta sess balance : 100
             Alpha sess balance : 100
-            Alpha withdraws 80, new balance = -60
             Beta withdraws 80, new balance = 20
+            Alpha withdraws 80, new balance = -60
         */
     }    
 }
