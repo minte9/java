@@ -629,8 +629,11 @@ npx cypress run --env apiUrl=http://localhost:9090
 
 ## 14. Refactoring
 
-The business logic happens in the controller layer, domain models are returned directly in response dto, and that there are no custom exceptions.  
-The controller does the poll index calculation, bounds checking, state mutation, and domain-to-response mapping.  
+The business logic happens in the controller layer, domain models are returned directly in response dto,  
+and that there are no custom exceptions.   
+
+The controller does the poll index calculation, bounds checking,  
+state mutation, and domain-to-response mapping (not good).  
 
 ~~~java
 @RestController
