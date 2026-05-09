@@ -714,7 +714,7 @@ public class PresentationController {
 }
 ~~~
 
-We moved all of that out of the controller.  
+We move all of that out of the controller.  
 Also, we replace ResponseStatusException with custom exceptions.  
 
 ~~~java
