@@ -717,6 +717,8 @@ public class PresentationController {
 We move all of that out of the controller.  
 Also, we replace ResponseStatusException with custom exceptions.  
 
+src/main/../presentation/controller/PresentationController.java
+
 ~~~java
 @RestController
 @RequestMapping("/presentations")
@@ -772,6 +774,9 @@ public class PresentationController {
     }
 }
 ~~~
+
+src/main/../presentation/service/PresentationService.java
+
 ~~~java
 @Service
 public class PresentationService {
@@ -822,9 +827,12 @@ public class PresentationService {
     }
 }
 ~~~
+
+src/main/../presentation/exception/GlobalExceptionHandler.java
+
 ~~~java
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler { // new version
     
     @ExceptionHandler(PresentationNotFoundException.class)
     public ResponseEntity<Void> handlePresentationNotFound() {
@@ -842,24 +850,24 @@ public class GlobalExceptionHandler {
     }
 }
 ~~~
-~~~java
-package com.minte9.presentation.exception;
 
+src/main/../presentation/exception/PresentationNotFoundException.java
+
+~~~java
 public class PresentationNotFoundException extends RuntimeException {
-    
 }
 ~~~
-~~~java
-package com.minte9.presentation.exception;
 
+src/main/../presentation/exception/NoMorePollException.java
+
+~~~java
 public class NoMorePollException extends RuntimeException {
-    
 }
 ~~~
-~~~java
-package com.minte9.presentation.exception;
 
+src/main/../presentation/exception/NoCurrentPollException.java
+
+~~~java
 public class NoCurrentPollException extends RuntimeException {
-    
 }
 ~~~
