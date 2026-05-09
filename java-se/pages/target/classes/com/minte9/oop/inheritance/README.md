@@ -1,8 +1,7 @@
 ### Inheritance 
 
 "Prefer composition/interfaces over inheritance" is a good advice most of the time.  
-But inheritance is still the right tool when there's a true "is-a" relationship +   
-shared state + shared base behavior.
+But inheritance is still the right tool when there's a true "is-a" relationship + shared state + shared base behavior.
 
 ### 1. Payment Processing System
 
@@ -149,7 +148,7 @@ Use interfaces when:
 - Behavior varies wildly
 - No shared implementation is needed
 
-### 2. Payment system (done wrong)
+### 1.4 Payment system (done wrong)
 
 A developer might try to be "modern" and do everything with interfaces. 
 
@@ -211,7 +210,7 @@ class PayPalPayment implements Payment {
 }
 ~~~
 
-### 2.1 What's wrong here?
+### 1.5 What's wrong here?
 
 a) Massive duplication, every class repeats:
 
@@ -241,7 +240,7 @@ sendReceipt();
 execute();
 ~~~
 
-### 3. Abstract Keyword
+### 2. Abstract Keyword
 
 An abstract class CANNOT be instantiated directly.
 
@@ -286,7 +285,7 @@ class CreditCardPayment extends Payment {
 }
 ~~~
 
-### 4. Override Annotation
+### 3. Override Annotation
 
 The @Override annotation acts as a compile-time safeguard.  
 
