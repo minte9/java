@@ -849,3 +849,17 @@ public class PresentationNotFoundException extends RuntimeException {
     
 }
 ~~~
+~~~java
+package com.minte9.presentation.exception;
+
+public class NoMorePollException extends RuntimeException {
+    
+}
+~~~
+~~~java
+package com.minte9.presentation.exception;
+
+public class NoCurrentPollException extends RuntimeException {
+    
+}
+~~~
