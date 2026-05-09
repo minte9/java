@@ -632,8 +632,7 @@ npx cypress run --env apiUrl=http://localhost:9090
 The business logic happens in the controller layer, domain models are returned directly in response dto,  
 and that there are no custom exceptions.   
 
-The controller does the poll index calculation, bounds checking,  
-state mutation, and domain-to-response mapping (not good).  
+The controller does the poll index calculation, bounds checking, state mutation, and domain-to-response mapping (not good).  
 
 ~~~java
 @RestController
@@ -714,8 +713,9 @@ public class PresentationController {
 }
 ~~~
 
+### 14.1 Presentation Controller - Refactoring
+
 We move all of that out of the controller.  
-Also, we replace ResponseStatusException with custom exceptions.  
 
 src/main/../presentation/controller/PresentationController.java
 
@@ -827,6 +827,10 @@ public class PresentationService {
     }
 }
 ~~~
+
+### 14.2 Custom Exceptions - Refactoring
+
+We replace ResponseStatusException with custom exceptions.  
 
 src/main/../presentation/exception/GlobalExceptionHandler.java
 
