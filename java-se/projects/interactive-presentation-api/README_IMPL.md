@@ -414,7 +414,7 @@ curl -i -X POST http://localhost:9090/presentations \
 ~~~
 
 
-### 9. Implement PUT /presentations
+## 9. Implement PUT /presentations
 
 Implement PUT /presentations/{presentation_id}/polls/current.  
 
@@ -624,4 +624,225 @@ Rerun:
 npx cypress run --env apiUrl=http://localhost:9090
 
 # All specs passed!
+~~~
+
+
+## 14. Refactoring
+
+The business logic happens in the controller layer, domain models are returned directly in response dto, and that there are no custom exceptions.  
+The controller does the poll index calculation, bounds checking, state mutation, and domain-to-response mapping.  
+
+~~~java
+@RestController
+@RequestMapping("/presentations")
+public class PresentationController {
+    
+    private final PresentationService presentationService;
+
+    public PresentationController(PresentationService presentationService) {
+        this.presentationService = presentationService;
+    }
+
+    @PostMapping
+    public ResponseEntity<CreatePresentationResponse> createPresentation(
+        @Valid @RequestBody CreatePresentationRequest request
+    ) {
+        Presentation presentation = new Presentation();
+        presentation.setPolls(request.getPolls());
+
+        String presentationId = presentationService.save(presentation);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(new CreatePresentationResponse(presentationId));
+    }
+
+    @PutMapping("/{presentationId}/polls/current")
+    public ResponseEntity<PollResponse> showNextPoll(
+        @PathVariable("presentationId") String presentationId
+    ) {
+
+        // Business-logic in controller & NO custom exceptions (not good)
+        Presentation presentation = presentationService.findById(presentationId)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        int nextPollIndex = presentation.getCurrent_poll_index() + 1;
+        if (nextPollIndex >= presentation.getPolls().size()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+
+        presentation.setCurrent_poll_index(nextPollIndex);
+        Poll currentPoll = presentation.getPolls().get(nextPollIndex);
+
+        return ResponseEntity.ok(
+                new PollResponse(
+                    currentPoll.getPoll_id(),
+                    currentPoll.getQuestion(),
+                    currentPoll.getOptions()
+                )
+        );
+    }
+
+    @GetMapping("/{presentationId}/polls/current")
+    public ResponseEntity<PollResponse> getCurrentPoll(
+        @PathVariable("presentationId") String presentationId
+    ) {
+
+        // Business-logic in controller & NO custom exceptions (not good)
+        Presentation presentation = presentationService.findById(presentationId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        int currentIndex = presentation.getCurrent_poll_index();
+
+        if (currentIndex < 0) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+
+        Poll currentPoll = presentation.getPolls().get(currentIndex);
+
+        return ResponseEntity.ok(
+                new PollResponse(
+                    currentPoll.getPoll_id(),
+                    currentPoll.getQuestion(),
+                    currentPoll.getOptions()
+                )
+        );
+    }
+}
+~~~
+
+We moved all of that out of the controller.  
+Also, we replace ResponseStatusException with custom exceptions.  
+
+~~~java
+@RestController
+@RequestMapping("/presentations")
+public class PresentationController {
+    
+    private final PresentationService presentationService;
+
+    public PresentationController(PresentationService presentationService) {
+        this.presentationService = presentationService;
+    }
+
+    @PostMapping
+    public ResponseEntity<CreatePresentationResponse> createPresentation(
+        @Valid @RequestBody CreatePresentationRequest request
+    ) {
+        Presentation presentation = new Presentation();
+        presentation.setPolls(request.getPolls());
+
+        String presentationId = presentationService.save(presentation);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(new CreatePresentationResponse(presentationId));
+    }
+
+    @PutMapping("/{presentationId}/polls/current")
+    public ResponseEntity<PollResponse> showNextPoll(
+        @PathVariable("presentationId") String presentationId
+    ) {
+        // Better (clean code)
+        Poll currentPoll = presentationService.showNextPoll(presentationId);
+        return ResponseEntity.ok(
+                new PollResponse(
+                    currentPoll.getPoll_id(),
+                    currentPoll.getQuestion(),
+                    currentPoll.getOptions()
+                )
+        );
+    }
+
+    @GetMapping("/{presentationId}/polls/current")
+    public ResponseEntity<PollResponse> getCurrentPoll(
+        @PathVariable("presentationId") String presentationId
+    ) {
+        // Better (clean code)
+        Poll currentPoll = presentationService.getCurrentPoll(presentationId);
+        return ResponseEntity.ok(
+                new PollResponse(
+                    currentPoll.getPoll_id(),
+                    currentPoll.getQuestion(),
+                    currentPoll.getOptions()
+                )
+        );
+    }
+}
+~~~
+~~~java
+@Service
+public class PresentationService {
+    
+    private final PresentationRepository repository;
+
+    public PresentationService(PresentationRepository repository) {
+        this.repository = repository;
+    }
+
+    public String save(Presentation presentation) {
+        return repository.save(presentation);
+    }
+
+    public Optional<Presentation> findById(String presentationId) {
+        return repository.findById(presentationId);
+    }
+
+    // moved from Controller (better)
+    public Poll showNextPoll(String presentationId) {
+        Presentation presentation = repository.findById(presentationId)
+            .orElseThrow(PresentationNotFoundException::new);
+
+        int nextPollIndex = presentation.getCurrent_poll_index() + 1;
+        if (nextPollIndex >= presentation.getPolls().size()) {
+            throw new NoMorePollException();
+        }
+
+        presentation.setCurrent_poll_index(nextPollIndex);  // update current poll
+
+        Poll nextPoll = presentation.getPolls().get(nextPollIndex);
+        return nextPoll;
+    }
+
+    // moved from Controller (better)
+    public Poll getCurrentPoll(String presentationId) {
+        Presentation presentation = repository.findById(presentationId)
+            .orElseThrow(PresentationNotFoundException::new);
+
+        int currentIndex = presentation.getCurrent_poll_index();
+
+        if (currentIndex < 0) {
+            throw new NoCurrentPollException();
+        }
+
+        Poll currentPoll = presentation.getPolls().get(currentIndex);
+        return currentPoll;
+    }
+}
+~~~
+~~~java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    
+    @ExceptionHandler(PresentationNotFoundException.class)
+    public ResponseEntity<Void> handlePresentationNotFound() {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    @ExceptionHandler(NoCurrentPollException.class)
+    public ResponseEntity<Void> handleNoCurrentPoll() {
+        return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    }
+
+    @ExceptionHandler(NoMorePollException.class)
+    public ResponseEntity<Void> handNoMorePolls() {
+        return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    }
+}
+~~~
+~~~java
+package com.minte9.presentation.exception;
+
+public class PresentationNotFoundException extends RuntimeException {
+    
+}
 ~~~
