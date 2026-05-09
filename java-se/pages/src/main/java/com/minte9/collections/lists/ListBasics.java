@@ -90,7 +90,7 @@ public class ListBasics {
         // Array to fixed-size List view
         List<String> fixed = Arrays.asList(arr);   // size fixed
         fixed.set(1, "B+");                        // OK: writes back into arr
-            // fixedView.add("D");                 // ❌ UnsupportedOperationException
+            // fixed.add("D");                     // ❌ UnsupportedOperationException
         System.out.println("Array after set via view: " 
             + Arrays.toString(arr)                  // [A, B+, C]
         );  
