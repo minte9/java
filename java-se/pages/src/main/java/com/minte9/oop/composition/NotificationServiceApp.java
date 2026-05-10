@@ -4,7 +4,7 @@ public class NotificationServiceApp {
     public static void main(String[] args) {
         
         NotificationService service = 
-            new NotificationService(new EmailSender());  // polimorphism
+            new NotificationService(new EmailSender());
             
         service.notifyUser("Your order was shipped.");  
             // Sending email: Your order was shipped.

@@ -60,7 +60,7 @@ class NotificationService {
 }
 ~~~
 
-### 1.1 Dependency Inversion
+### 2. Dependency Inversion
 
 Before Dependency Inversion high-level business code depends directly  
 on low-level details.  
@@ -99,7 +99,7 @@ EmailSender depends on MessageSender
 The low-level class now depends on the abstraction defined by the high-level policy.  
 That is the inversion.  
 
-### 2. Default Method
+### 3. Default Method
 
 Java 8 introduced default methods in interfaces.  
 
