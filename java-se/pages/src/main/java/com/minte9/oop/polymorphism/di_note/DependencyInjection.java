@@ -1,14 +1,4 @@
-/**
- * Polymorphism and Dependency Injection
- * 
- * FileOpener receives an Item through its constructor
- * insteed of creating it itself (DI).
- * 
- * The same method call (open) behaves differently depending
- * on the concreate type (Csv or XML) provided at runtime (PO).
- */
-
-package com.minte9.oop.polymorphism;
+package com.minte9.oop.polymorphism.di_note;
 
 public class DependencyInjection {
     public static void main(String[] args) {
