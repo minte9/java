@@ -36,7 +36,7 @@ class NotificationService {
     // Dependency Inversion
     private MessageSender sender;  // service depends on the abstraction
 
-    // Dependecny Injection
+    // Dependency Injection
     public NotificationService(MessageSender sender) {
         this.sender = sender;
     }

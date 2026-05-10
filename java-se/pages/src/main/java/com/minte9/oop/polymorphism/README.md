@@ -74,59 +74,104 @@ class FileService {
 }
 ~~~
 
-### 2. Dependency Injection
+### 1.1 Dependency Injection
 
-FileOpener receives an Item through its constructor insteed of creating it itself.  
-This is Dependency Injectdion.
-
-The same method call (open) behaves differently depending on the concreate type (Csv or XML) 
-provided at runtime (PO).
+A beginner ofthen writes this:
 
 ~~~java
-package com.minte9.oop.polymorphism.di_note;
+class FileService {
 
-public class DependencyInjection {
-    public static void main(String[] args) {
-        Item csv = new Csv();
-        Item xml = new Xml();
+    private CloudStorage storage = new CloudStorage();
+}
+~~~
 
-        FileOpener csvOpener = new FileOpener(csv);
-        FileOpener xmlOpener = new FileOpener(xml);
+Problem:
 
-        csvOpener.open();  // CSV opened
-        xmlOpener.open();  // XML opened
-       
+- tightly coupled
+- impossible to switch implementation
+- difficult to test
+- business logic controls low-level details
+
+With Dependency Injection:
+
+- implementation is external
+- behavior is configurable
+- dependencies are replaceable
+
+~~~java
+class FileService {
+
+    private StorageProvider storage;  // Business logic depends on abstraction
+
+    public FileService(StorageProvider storage) {  // Dependency injectected from outside
+        this.storage = storage;
     }
 }
+~~~
 
-abstract class Item {
-    public abstract void open();
-}
+Dependency Injection is everywhere in:
 
-class Csv extends Item {
-    @Override
-    public void open() {
-        System.out.println("CSV opened");
+- Spring Framework
+- Hibernate
+- JUnit
+
+### 1.2 Final Keyword
+
+Suppose storaget provider should never change after service creation.  
+That is a perfect use of final (cannot be reasigned, overriden, extended).    
+
+~~~java
+class FileService {
+    private final StorageProvider storage;  // Look Here
+
+    public FileService(StorageProvider storage) {
+        this.storage = storage;
     }
 }
+~~~
 
-class Xml extends Item {
-    @Override
-    public void open() {
-        System.out.println("XML opened");
+Usefull when:
+
+- security matters
+- workflow must not change
+- algorithm must stay consistent
+
+Example:
+
+- authentication flow
+- transcation handling
+- framework lifecycle methods
+
+Extremely common, because dependencies should not mutate:
+
+- Spring Framework
+- Dependency Injection
+- Clean arhitecture
+- Immutable desing
+
+### 1.3 Static Keyword
+
+Suppose your application wants to count uploaded files globally.  
+That is perfect use of static (belongs to the class/service).  
+
+That count belongs to: 
+
+- the whole application
+- not to one FileService object
+
+~~~java
+class FileService {
+
+    public static int totalUploads = 0;  // shared by all instances
+    private StorageProvider storage;
+
+    public FileService(StorageProvider storage) {
+        this.storage = storage;
     }
-}
 
-class FileOpener {
-    private final Item item;  // dependency
-
-    // Dependency Injection via constructor
-    public FileOpener(Item item) {
-        this.item = item;
-    }
-
-    public void open() {
-        item.open();
+    public void uploadFile(String fileName) {
+        storage.store(fileName);
+        totalUploads++;  // Look Here
     }
 }
 ~~~
