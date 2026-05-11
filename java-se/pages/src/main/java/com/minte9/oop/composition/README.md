@@ -3,7 +3,7 @@
 When a class implements an interface, it agrees to a contract.  
 
 
-### 1. Notification Service
+### 1. Notification Service Application
 
 A notification chanel cand send a message.  
 Email, SMS, and push notifications are different channels,  

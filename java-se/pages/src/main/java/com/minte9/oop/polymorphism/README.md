@@ -3,7 +3,7 @@
 Polymorphism means "many forms".  
 
 
-### 1. Storage Service
+### 1. Storage Service Application
 
 A storage service can work with different storage providers  
 through the same interface.  
@@ -74,7 +74,6 @@ class FileService {
     }
 }
 ~~~
-
 
 ### 2. Dependency Injection
 
