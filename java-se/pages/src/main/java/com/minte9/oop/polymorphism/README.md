@@ -1,10 +1,9 @@
-## 3. Polymorphism
+## Polymorphism
 
 Polymorphism means "many forms".  
 
 
-
-### 3.1 Storage Service
+### 1. Storage Service
 
 A storage service can work with different storage providers  
 through the same interface.  
@@ -76,7 +75,8 @@ class FileService {
 }
 ~~~
 
-### 3.2 Dependency Injection
+
+### 2. Dependency Injection
 
 A beginner ofthen writes this:
 
@@ -117,7 +117,8 @@ Dependency Injection is everywhere in:
 - Hibernate
 - JUnit
 
-### 3.3 Final Keyword
+
+### 3. Final Keyword
 
 Suppose storaget provider should never change after service creation.  
 That is a perfect use of final (cannot be reasigned, overriden, extended).    
@@ -151,7 +152,8 @@ Extremely common, because dependencies should not mutate:
 - Clean arhitecture
 - Immutable desing
 
-### 3.4 Static Keyword
+
+### 4. Static Keyword
 
 Suppose your application wants to count uploaded files globally.  
 That is perfect use of static (belongs to the class/service).  

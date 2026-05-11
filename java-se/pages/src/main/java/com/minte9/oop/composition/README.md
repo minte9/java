@@ -1,8 +1,9 @@
-## 2. Composition
+## Composition
 
 When a class implements an interface, it agrees to a contract.  
 
-### 2.1. Notification Service
+
+### 1. Notification Service
 
 A notification chanel cand send a message.  
 Email, SMS, and push notifications are different channels,  
@@ -60,7 +61,8 @@ class NotificationService {
 }
 ~~~
 
-### 2.2 Dependency Inversion
+
+### 2. Dependency Inversion
 
 Before Dependency Inversion high-level business code depends directly  
 on low-level details.  
@@ -99,7 +101,8 @@ EmailSender depends on MessageSender
 The low-level class now depends on the abstraction defined by the high-level policy.  
 That is the inversion.  
 
-### 2.3 Default Method
+
+### 3. Default Method
 
 Java 8 introduced default methods in interfaces.  
 
