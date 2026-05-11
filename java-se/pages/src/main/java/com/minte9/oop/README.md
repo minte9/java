@@ -27,7 +27,7 @@ They all:
 
 <details>
 <summary>PaymentApp.java</summary>
-~~~java
+```java
 package com.minte9.oop.inheritance;
 
 public class PaymentApp {
@@ -100,7 +100,7 @@ class PayPalPayment extends Payment {
         System.out.println("Processing PayPal payment...");
     }
 }
-~~~
+```
 </details>
 
 ### 1.1 Why inheritance is the right choise here?
