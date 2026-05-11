@@ -121,6 +121,7 @@ Dependency Injection is everywhere in:
 
 Suppose storaget provider should never change after service creation.  
 That is a perfect use of final (cannot be reasigned, overriden, extended).    
+The reference cannot be changed, but the object itself can (if it not itself immutable).  
 
 ~~~java
 class FileService {
