@@ -1,9 +1,9 @@
-### Inheritance 
+## 1. Inheritance 
 
 "Prefer composition/interfaces over inheritance" is a good advice most of the time.  
 But inheritance is still the right tool when there's a true "is-a" relationship + shared state + shared base behavior.
 
-### 1. Payment Processing System
+### 1.1 Payment Processing System
 
 We can have different payment methods:
 
@@ -240,7 +240,7 @@ sendReceipt();
 execute();
 ~~~
 
-### 2. Abstract Keyword
+### 1.6 Abstract Keyword
 
 An abstract class CANNOT be instantiated directly.
 
@@ -285,7 +285,7 @@ class CreditCardPayment extends Payment {
 }
 ~~~
 
-### 3. Override Annotation
+### 1.7 Override Annotation
 
 The @Override annotation acts as a compile-time safeguard.  
 
