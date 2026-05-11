@@ -25,6 +25,8 @@ They all:
 - Have a common processing flow
 - But differ in how the payment is executed
 
+<details>
+<summary>PaymentApp.java</summary>
 ~~~java
 package com.minte9.oop.inheritance;
 
@@ -99,6 +101,7 @@ class PayPalPayment extends Payment {
     }
 }
 ~~~
+</details>
 
 ### 1.1 Why inheritance is the right choise here?
 
