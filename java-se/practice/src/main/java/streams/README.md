@@ -1,4 +1,5 @@
-# Streams Practice
+## Streams Practice
+
 
 ## 1. Basic Filtering
 
@@ -168,7 +169,8 @@ public class StreamSolution {
 
         List<String> group2 = 
             employees.stream()
-                .filter(employee -> employee.department().equals("IT"))  // == is wrong (compares references, NOT values)
+                .filter(employee -> employee.department().equals("IT"))  
+                    // == is wrong (compares references, NOT values)
                 .map(employee -> employee.name())
                 .toList();
 
@@ -202,7 +204,7 @@ record Employee(int id, String name, String department, int salary) {}
 ~~~
 
 
-1.3 Clean Code Solution
+### 1.3 Clean Code Solution
 
 ~~~java
 /**
@@ -303,3 +305,7 @@ class EmployeeService {
     }
 }
 ~~~
+
+
+
+### 2. Sorting & Aggregation
