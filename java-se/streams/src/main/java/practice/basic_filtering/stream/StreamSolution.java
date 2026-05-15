@@ -17,6 +17,8 @@
  *   - how to sum salaries
  *   - how to print results
  */
+package practice.basic_filtering.stream;
+
 import java.util.List;
 
 public class StreamSolution {
@@ -63,7 +65,7 @@ public class StreamSolution {
             Frank
         */
 
-        System.out.println("Task 3 - Calculate the total salary of all employees");
+        System.out.println("Task 3: Total salary of all employees");
 
         int sum = 
             employees.stream()

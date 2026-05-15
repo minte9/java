@@ -7,10 +7,10 @@ Using the dataset below, implement BOTH:
 - imperative solution
 - stream solution
 
-Task 1 - Return all employees sorted by salary descending.   
-Task 2 - Find highest paid employee.  
-Task 3 - Group employees by department.  
-Task 4 - Calculate average salary of all employees.  
+Task 1: Return all employees sorted by salary descending   
+Task 2: Find highest paid employee  
+Task 3: Group employees by department  
+Task 4: Calculate average salary of all employees  
 
 Starter Application:
 
@@ -65,7 +65,7 @@ public class ImperativeSolution {
                 new Employee(6, "Frank", "IT", 4500)
         ));
 
-        System.out.println("Task 1 - Employees sorted by salary descending.");
+        System.out.println("Task 1: Employees sorted by salary descending");
 
         employees.sort(new EmployeeComparator());
         for (Employee employee : employees) {
@@ -80,6 +80,8 @@ public class ImperativeSolution {
             Employee[id=2, name=Bob, department=HR, salary=4000]
             Employee[id=5, name=Eve, department=HR, salary=3000]
         */
+
+        System.out.println("Task 2: Find highest paid employee.");
 
     }
 }
@@ -124,7 +126,7 @@ public class StreamSolution {
                 new Employee(6, "Frank", "IT", 4500)
         );
 
-        System.out.println("Task 1 - Employees sorted by salary descending.");
+        System.out.println("Task 1: Employees sorted by salary descending");
 
         List<Employee> sorted = 
             employees.stream()
@@ -174,7 +176,7 @@ public class CleanCodeSolution {
             repository.getEmployees()
         );
 
-        System.out.println("Task 1 - Employees sorted by salary descending.");
+        System.out.println("Task 1: Employees sorted by salary descending");
 
         List<Employee> sorted = service.findEmployeesOrderedBySalaryDescending();
         sorted.forEach(System.out::println);

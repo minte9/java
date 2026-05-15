@@ -3,6 +3,8 @@
  * ================================================
  * Imperative Solution
  */
+package practice.basic_filtering.imperative;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,6 @@ public class ImperativeSolution {
 
 
         System.out.println("Task 1: Employees with salary greater than 5000");
-
         List<Employee> group1 = new ArrayList<>(); 
         for(Employee employee : employees) {
             if (employee.salary() > 5000) {
@@ -38,7 +39,6 @@ public class ImperativeSolution {
         */
 
         System.out.println("Task 2: Employees from IT department");
-
         List<Employee> group2 = new ArrayList<>();
         for(Employee employee : employees) {
             if (employee.department().equals("IT")) {
@@ -54,8 +54,7 @@ public class ImperativeSolution {
             Employee[id=6, name=Frank, department=IT, salary=4500]
         */
 
-        System.out.println("Task 3 - Calculate the total salary of all employees");
-
+        System.out.println("Task 3: Total salary of all employees");
         int sum = 0;
         for(Employee employee : employees) {
             sum += employee.salary();

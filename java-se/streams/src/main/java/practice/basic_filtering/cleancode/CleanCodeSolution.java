@@ -8,6 +8,8 @@
  * 
  * Here responsibilities are separated. 
  */
+package practice.basic_filtering.cleancode;
+
 import java.util.List;
 
 public class CleanCodeSolution {
@@ -38,7 +40,7 @@ public class CleanCodeSolution {
             Frank
         */
 
-        System.out.println("Task 3 - Calculate the total salary of all employees");
+        System.out.println("Task 3: Calculate the total salary of all employees");
         int sum = employeeService.getSalarySum();
         System.out.println(sum);
 

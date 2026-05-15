@@ -1,6 +1,5 @@
 ## Streams Practice - LEVEL 1
 
-
 ## 1. Basic Filtering
 
 From the list of employees:
@@ -44,6 +43,8 @@ record Employee(int id, String name, String department, int salary) {}
  * ================================================
  * Imperative Solution
  */
+package practice.basic_filtering.imperative;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,6 @@ public class ImperativeSolution {
 
 
         System.out.println("Task 1: Employees with salary greater than 5000");
-
         List<Employee> group1 = new ArrayList<>(); 
         for(Employee employee : employees) {
             if (employee.salary() > 5000) {
@@ -79,7 +79,6 @@ public class ImperativeSolution {
         */
 
         System.out.println("Task 2: Employees from IT department");
-
         List<Employee> group2 = new ArrayList<>();
         for(Employee employee : employees) {
             if (employee.department().equals("IT")) {
@@ -95,8 +94,7 @@ public class ImperativeSolution {
             Employee[id=6, name=Frank, department=IT, salary=4500]
         */
 
-        System.out.println("Task 3 - Calculate the total salary of all employees");
-
+        System.out.println("Task 3: Total salary of all employees");
         int sum = 0;
         for(Employee employee : employees) {
             sum += employee.salary();
@@ -135,6 +133,8 @@ record Employee(int id, String name, String department, int salary) {}
  *   - how to sum salaries
  *   - how to print results
  */
+package practice.basic_filtering.stream;
+
 import java.util.List;
 
 public class StreamSolution {
@@ -169,8 +169,7 @@ public class StreamSolution {
 
         List<String> group2 = 
             employees.stream()
-                .filter(employee -> employee.department().equals("IT"))  
-                    // == is wrong (compares references, NOT values)
+                .filter(employee -> employee.department().equals("IT"))  // == is wrong (compares references, NOT values)
                 .map(employee -> employee.name())
                 .toList();
 
@@ -217,6 +216,8 @@ record Employee(int id, String name, String department, int salary) {}
  * 
  * Here responsibilities are separated. 
  */
+package practice.basic_filtering.cleancode;
+
 import java.util.List;
 
 public class CleanCodeSolution {
@@ -247,7 +248,7 @@ public class CleanCodeSolution {
             Frank
         */
 
-        System.out.println("Task 3 - Calculate the total salary of all employees");
+        System.out.println("Task 3: Calculate the total salary of all employees");
         int sum = employeeService.getSalarySum();
         System.out.println(sum);
 

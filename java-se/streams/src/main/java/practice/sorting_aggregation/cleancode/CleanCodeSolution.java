@@ -21,7 +21,7 @@ public class CleanCodeSolution {
             repository.getEmployees()
         );
 
-        System.out.println("Task 1 - Employees sorted by salary descending.");
+        System.out.println("Task 1: Employees sorted by salary descending");
 
         List<Employee> sorted = service.findEmployeesOrderedBySalaryDescending();
         sorted.forEach(System.out::println);
