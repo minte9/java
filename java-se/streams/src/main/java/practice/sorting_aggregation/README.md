@@ -1,6 +1,6 @@
 ## Streams Practice - LEVEL 2
 
-## 2. Sorting & Aggregation
+## Sorting & Aggregation
 
 Using the dataset below, implement BOTH:
 
@@ -48,9 +48,13 @@ record Employee(int id, String name, String department, int salary) {}
  * List.of() is immutable.
  * For sort() we need mutable list.
  */
+package practice.sorting_aggregation.imperative;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ImperativeSolution {
 
@@ -66,12 +70,10 @@ public class ImperativeSolution {
         ));
 
         System.out.println("Task 1: Employees sorted by salary descending");
-
         employees.sort(new EmployeeComparator());
         for (Employee employee : employees) {
             System.out.println(employee);
         }
-
         /*
             Employee[id=3, name=Charlie, department=IT, salary=7000]
             Employee[id=1, name=Alice, department=IT, salary=6000]
@@ -82,7 +84,76 @@ public class ImperativeSolution {
         */
 
         System.out.println("Task 2: Find highest paid employee.");
+        Employee highest = employees.get(0);
+        for (Employee employee : employees) {
+            if (employee.salary() > highest.salary()) {
+                highest = employee;
+            }
+        }
+        System.out.println(highest);
+        /*
+            Employee[id=3, name=Charlie, department=IT, salary=7000]
+        */
 
+        System.out.println("Task 3: Group employees by department");
+        Map<String, List<Employee>> grouped = new HashMap<>();
+        for (Employee employee : employees) {
+            if (!grouped.containsKey(employee.department())) {
+                grouped.put(employee.department(), new ArrayList<>());
+            }
+            grouped.get(employee.department()).add(employee);
+        }
+        for (Map.Entry<String, List<Employee>> entry : grouped.entrySet()) {
+            System.out.println(entry.getKey());
+            for (Employee employee : entry.getValue()) {
+                System.out.println(employee);
+            }
+        }
+        /*
+            Finance
+            Employee[id=4, name=Diana, department=Finance, salary=5500]
+            HR
+            Employee[id=2, name=Bob, department=HR, salary=4000]
+            Employee[id=5, name=Eve, department=HR, salary=3000]
+            IT
+            Employee[id=3, name=Charlie, department=IT, salary=7000]
+            Employee[id=1, name=Alice, department=IT, salary=6000]
+            Employee[id=6, name=Frank, department=IT, salary=4500]
+        */
+
+        System.out.println("Task 3: Group employees by department (modern Java)");
+        Map<String, List<Employee>> mGrouped = new HashMap<>();
+        for (var employee : employees) {
+            mGrouped.computeIfAbsent(
+                employee.department(), 
+                key -> new ArrayList<>()
+            ).add(employee);
+        }
+        for (var entry : mGrouped.entrySet()){
+            System.out.print(entry.getKey() + ": ");
+
+            for (var employee : entry.getValue()) {
+                System.out.print(employee.name() + " ");
+            }
+
+            System.out.println();
+        }
+        /*
+            Finance: Diana
+            HR: Bob Eve
+            IT: Charlie Alice Frank
+        */
+
+        System.out.println("Task 4: Average salary of all employees");
+        int total = 0;
+        for (Employee employee : employees) {
+            total += employee.salary();
+        }
+        double avg = (double) total/employees.size();
+        System.out.println(avg);
+        /*
+            5000.0
+        */
     }
 }
 
@@ -109,9 +180,13 @@ class EmployeeComparator implements Comparator<Employee> {
  * Stream sorting does NOT mutate the list.
  * There is not need for new ArrayList<>(List.of(..))
  */
+package practice.sorting_aggregation.stream;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Map;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamSolution {
 
@@ -127,13 +202,11 @@ public class StreamSolution {
         );
 
         System.out.println("Task 1: Employees sorted by salary descending");
-
         List<Employee> sorted = 
             employees.stream()
                 .sorted(Comparator.comparing(Employee::salary).reversed())
                 .toList();
         sorted.forEach(System.out::println);
-
         /*
             Employee[id=3, name=Charlie, department=IT, salary=7000]
             Employee[id=1, name=Alice, department=IT, salary=6000]
@@ -141,6 +214,49 @@ public class StreamSolution {
             Employee[id=6, name=Frank, department=IT, salary=4500]
             Employee[id=2, name=Bob, department=HR, salary=4000]
             Employee[id=5, name=Eve, department=HR, salary=3000]
+        */
+
+
+        System.out.println("Task 2: Find highest paid employee.");
+        Employee highest = 
+            employees.stream()
+                .sorted(Comparator.comparing(Employee::salary).reversed())
+                .toList()
+                .get(0);
+        System.out.println(highest);
+        /*
+            Employee[id=3, name=Charlie, department=IT, salary=7000]
+        */
+
+        System.out.println("Task 3: Group employees by department");
+        Map<String, List<Employee>> grouped = 
+            employees.stream()
+                .collect(Collectors.groupingBy(Employee::department));
+
+        grouped.forEach((department, employeesList) -> {
+            System.out.print(department + ": ");
+
+            employeesList.forEach(employee -> {
+                System.out.print(employee.name() + " ");
+            });
+            System.out.println();
+        });
+        /*
+            Finance: Diana
+            HR: Bob Eve
+            IT: Alice Charlie Frank
+        */
+
+
+        System.out.println("Task 4: Average salary of all employees");
+        double avg = 
+            employees.stream()
+                .mapToInt(Employee::salary)
+                .average()
+                .orElse(0.0);
+        System.out.println(avg);
+        /*
+            5000.0
         */
 
     }
@@ -163,9 +279,13 @@ record Employee(int id, String name, String department, int salary) {}
  * 
  * This is VERY good for thread safety and defensive programming.
  */
+package practice.sorting_aggregation.cleancode;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CleanCodeSolution {
 
@@ -176,11 +296,10 @@ public class CleanCodeSolution {
             repository.getEmployees()
         );
 
-        System.out.println("Task 1: Employees sorted by salary descending");
 
+        System.out.println("Task 1: Employees sorted by salary descending");
         List<Employee> sorted = service.findEmployeesOrderedBySalaryDescending();
         sorted.forEach(System.out::println);
-
         /*
             Employee[id=3, name=Charlie, department=IT, salary=7000]
             Employee[id=1, name=Alice, department=IT, salary=6000]
@@ -190,6 +309,40 @@ public class CleanCodeSolution {
             Employee[id=5, name=Eve, department=HR, salary=3000]
         */
 
+
+        System.out.println("Task 2: Find highest paid employee.");
+        Employee highest = service.findEmployeeWithHighestSalary();
+        System.out.println(highest);
+        /*
+            Employee[id=3, name=Charlie, department=IT, salary=7000]
+        */
+
+
+        System.out.println("Task 3: Group employees by department");
+        Map<String, List<Employee>> grouped = 
+            service.getEmployeesGroupedByDepartment();
+
+        grouped.forEach((department, employeesList) -> {
+            System.out.println(
+                department + " -> " +
+                employeesList.stream()
+                    .map(Employee::name)
+                    .collect(Collectors.joining(", "))
+            );
+        });
+        /*
+            Finance -> Diana
+            HR -> Bob, Eve
+            IT -> Alice, Charlie, Frank
+        */
+
+
+        System.out.println("Task 4: Average salary of all employees");
+        double avg = service.getAverageSalary();
+        System.out.println(avg);
+        /* 
+            5000.0
+        */
     }
 }
 
@@ -222,6 +375,25 @@ class EmployeeService {
         return employees.stream()
             .sorted(Comparator.comparing(Employee::salary).reversed())
             .toList();
+    }
+    
+    public Employee findEmployeeWithHighestSalary() {
+        return employees.stream()
+            .sorted(Comparator.comparing(Employee::salary).reversed())
+            .toList()
+            .get(0);
+    }
+
+    public Map<String, List<Employee>> getEmployeesGroupedByDepartment() {
+        return employees.stream()
+            .collect(Collectors.groupingBy(Employee::department));
+    }
+
+    public double getAverageSalary(){
+        return employees.stream()
+            .mapToInt(Employee::salary)
+            .average()
+            .orElse(0.0);
     }
 }
 ~~~

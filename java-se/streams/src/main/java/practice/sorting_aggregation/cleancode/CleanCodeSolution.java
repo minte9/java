@@ -8,9 +8,13 @@
  * 
  * This is VERY good for thread safety and defensive programming.
  */
+package practice.sorting_aggregation.cleancode;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CleanCodeSolution {
 
@@ -21,11 +25,10 @@ public class CleanCodeSolution {
             repository.getEmployees()
         );
 
-        System.out.println("Task 1: Employees sorted by salary descending");
 
+        System.out.println("Task 1: Employees sorted by salary descending");
         List<Employee> sorted = service.findEmployeesOrderedBySalaryDescending();
         sorted.forEach(System.out::println);
-
         /*
             Employee[id=3, name=Charlie, department=IT, salary=7000]
             Employee[id=1, name=Alice, department=IT, salary=6000]
@@ -35,6 +38,40 @@ public class CleanCodeSolution {
             Employee[id=5, name=Eve, department=HR, salary=3000]
         */
 
+
+        System.out.println("Task 2: Find highest paid employee.");
+        Employee highest = service.findEmployeeWithHighestSalary();
+        System.out.println(highest);
+        /*
+            Employee[id=3, name=Charlie, department=IT, salary=7000]
+        */
+
+
+        System.out.println("Task 3: Group employees by department");
+        Map<String, List<Employee>> grouped = 
+            service.getEmployeesGroupedByDepartment();
+
+        grouped.forEach((department, employeesList) -> {
+            System.out.println(
+                department + " -> " +
+                employeesList.stream()
+                    .map(Employee::name)
+                    .collect(Collectors.joining(", "))
+            );
+        });
+        /*
+            Finance -> Diana
+            HR -> Bob, Eve
+            IT -> Alice, Charlie, Frank
+        */
+
+
+        System.out.println("Task 4: Average salary of all employees");
+        double avg = service.getAverageSalary();
+        System.out.println(avg);
+        /* 
+            5000.0
+        */
     }
 }
 
@@ -67,5 +104,24 @@ class EmployeeService {
         return employees.stream()
             .sorted(Comparator.comparing(Employee::salary).reversed())
             .toList();
+    }
+    
+    public Employee findEmployeeWithHighestSalary() {
+        return employees.stream()
+            .sorted(Comparator.comparing(Employee::salary).reversed())
+            .toList()
+            .get(0);
+    }
+
+    public Map<String, List<Employee>> getEmployeesGroupedByDepartment() {
+        return employees.stream()
+            .collect(Collectors.groupingBy(Employee::department));
+    }
+
+    public double getAverageSalary(){
+        return employees.stream()
+            .mapToInt(Employee::salary)
+            .average()
+            .orElse(0.0);
     }
 }

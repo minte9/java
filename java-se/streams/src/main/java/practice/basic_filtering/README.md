@@ -1,6 +1,6 @@
 ## Streams Practice - LEVEL 1
 
-## 1. Basic Filtering
+## Basic Filtering
 
 From the list of employees:
 
@@ -305,42 +305,4 @@ class EmployeeService {
                 .sum();
     }
 }
-~~~
-
-
-
-## 2. Sorting & Aggregation
-
-Using the dataset below, implement BOTH:
-
-- imperative solution
-- stream solution
-
-Task 1 - Return all employees sorted by salary descending.   
-Task 2 - Find highest paid employee.  
-Task 3 - Group employees by department.  
-Task 4 - Calculate average salary of all employees.  
-
-Starte Application:
-
-~~~java
-import java.util.List;
-
-public class Level2Practice {
-
-    public static void main(String[] args) {
-
-        List<Employee> employees = List.of(
-                new Employee(1, "Alice", "IT", 6000),
-                new Employee(2, "Bob", "HR", 4000),
-                new Employee(3, "Charlie", "IT", 7000),
-                new Employee(4, "Diana", "Finance", 5500),
-                new Employee(5, "Eve", "HR", 3000),
-                new Employee(6, "Frank", "IT", 4500)
-        );
-
-    }
-}
-
-record Employee(int id, String name, String department, int salary) {}
 ~~~
