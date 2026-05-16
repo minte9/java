@@ -1,4 +1,6 @@
-### Streams Filter
+## Common Operations
+
+### 1. Streams Filter
 
 Filter only strings that starts with a number.
 
@@ -49,7 +51,7 @@ public class StreamFilter {
 ~~~
 
 
-### Stream Map
+### 2. Stream Map
 
 Map each value to uppercase.
 
@@ -98,7 +100,7 @@ public class StreamMap {
 ~~~
 
 
-### Stream Reduce
+### 3. Stream Reduce
 
 
 Reduce is used when you want a single result from collection.  
@@ -148,7 +150,7 @@ public class StreamReduce {
 ~~~
 
 
-### Stream PartitioningBy
+### 4. Stream PartitioningBy
 
 Partitioning a Stream into two collections of values.  
 
@@ -192,7 +194,7 @@ public class StreamPartitioningBy {
 ~~~
 
 
-### Stream Comparing
+### 5. Stream Comparing
 
 Comparing is used when you want to find minimum or maximum of an element. 
 
