@@ -8,7 +8,6 @@
  */
 package practice.sorting_aggregation.stream;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.List;

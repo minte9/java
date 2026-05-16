@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="baa5e920-3131-452f-b574-f0d210600282" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline_model/PipelineModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline_model/ShortCircuiting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stream_collect/CollectGroupingBy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stream_collect/CollectToList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams_basics/CommonOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams_basics/IterationStyles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams_basics/Laziness.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams_basics/StreamsBasics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_operations/StreamComparing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_operations/StreamFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_operations/StreamMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_operations/StreamPartitioningBy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_operations/StreamReduce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../streams/src/main/java/common_operations/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../streams/src/main/java/common_operations/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../streams/src/main/java/common_operations/StreamFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../streams/src/main/java/common_operations/StreamFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../streams/src/main/java/practice/sorting_aggregation/cleancode/CleanCodeSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../streams/src/main/java/practice/sorting_aggregation/cleancode/CleanCodeSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../streams/src/main/java/practice/sorting_aggregation/stream/StreamSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../streams/src/main/java/practice/sorting_aggregation/stream/StreamSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../streams/src/main/java/streams_basics/app_example/OrdersBadApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../streams/src/main/java/streams_basics/app_example/OrdersBadApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
