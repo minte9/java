@@ -1,15 +1,77 @@
-/**
- * STREAMS - GROUPING (Real-World Example)
- * ---------------------------------------
- * Imagine an e-commerce system.
- * 
- * You want to group orders by status so you can:
- *  - process payments
- *  - prepare shipments
- *  - show dashboards
- */
+## Collectors
 
-package com.minte9.streams.stream_collect;
+forEach() is for side efects.  
+collect() is for producing a result.  
+
+Tipical side effects:
+
+- printing, logging
+- writing a file
+- sending emails
+- mutating external state (usually discouraged)
+
+Collect: 
+
+- Terminal operation
+- Returns a new data structure
+- No side effects (ideally)
+
+Common Collectors:
+
+- toList()
+- toSet()
+- toMap()
+- joining()
+- groupBy()
+
+~~~java
+package collectors;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class CollectorsToList {
+    public static void main(String[] args) {
+        
+        // forEach() - side effects
+        List<String> users = List.of("Alice", "Bob", "Charlie");
+        users.stream()
+             .forEach(user -> 
+                System.out.println("Processing user: " + user)
+            );
+            /*
+                Processing user: Alice
+                Processing user: Bob
+                Processing user: Charlie
+            */
+
+        // Collect - toList()
+        List<String> clients = List.of("Alice", "Bob", "Charlie");
+
+        List<String> filteredClients = 
+            clients.stream()
+                .filter(user -> user.startsWith("A"))
+                .collect(Collectors.toList());
+
+        System.out.println(filteredClients);  // [Alice]
+    }   
+}
+~~~
+
+
+### Grouping (real-world example)
+
+Imagine an e-commerce system.
+
+You want to group orders by status so you can:
+
+- process payments
+- prepare shipments
+- show dashboards
+
+~~~java
+
+package collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.counting;
@@ -31,7 +93,7 @@ public class CollectGroupingBy {
 
         /**
          * GROUPING - PLAIN JAVA
-         * ---------------------
+         * ======================
          * Manual grouping using loops and mutable state.
          *  - Verbose
          *  - Easy to forget edge cases
@@ -50,21 +112,25 @@ public class CollectGroupingBy {
             ordersByStatus.get(status).add(order);
         }
     
-        System.out.println(ordersByStatus.get(Status.NEW));
-            // [Order[id=1, status=NEW], Order[id=3, status=NEW]]
+        System.out.println(
+            ordersByStatus.get(Status.NEW)
+        );
+        // [Order[id=1, status=NEW], Order[id=3, status=NEW]]
 
             
         /**
          * GROUPING - STREAMS
-         * ------------------
+         * ==================
          * Groups stream elements by a classifier function.
          */
         Map<Status, List<Order>> ordersByStatus_B =
             orders.stream()
                   .collect(groupingBy(Order::status));
 
-        System.out.println(ordersByStatus_B.get(Status.PAID));
-            // [Order[id=2, status=PAID]]
+        System.out.println(
+            ordersByStatus_B.get(Status.PAID)
+        );
+        // [Order[id=2, status=PAID]]
 
 
         /**
@@ -80,7 +146,7 @@ public class CollectGroupingBy {
                   ));
 
         System.out.println(countByStatus);
-            // {SHIPPED=1, NEW=2, PAID=1}
+        // {SHIPPED=1, NEW=2, PAID=1}
     }
     
 }
@@ -90,3 +156,4 @@ enum Status {
 }
 
 record Order(int id, Status status) {}
+~~~

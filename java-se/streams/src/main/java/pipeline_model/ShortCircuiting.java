@@ -1,28 +1,13 @@
-/**
- * STREAMS - SHORT-CIRCUITING OPERATIONS
- * -------------------------------------
- * Short-circuiting terminal operations may stop the stream
- * before all elements are processed.
- * 
- * COMMON SHORT-CIRCUITING OPERATIONS
- * ----------------------------------
- *  - findFirst()
- *  - findAny()
- *  - anyMatch()
- *  - allMatch()
- *  - noneMatch()
- * 
- * These operations benefits directly from lazy operations 
- * 
+/** 
  * FIND FIRST SCENARIO:
- * --------------------
+ * ====================
  * Given a list of orders sorted by creation time,
  * find the FIRST unpaid (active) order.
  * 
  * Once the first match is found, the stream stops. 
  */
 
-package com.minte9.streams.pipeline_model;
+package pipeline_model;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,25 +26,23 @@ public class ShortCircuiting {
         Optional<Order> firstUnpaid = 
             orders.stream()
                    .filter(order -> {
-                        System.out.println("checking order " + order.id());
+                        System.out.println("Checking order: " + order.id());
                         return !order.paid();
                    })
                    .findFirst();
 
         firstUnpaid.ifPresent(
-            order -> System.out.println("First unpaid order: " + order)
+            order -> System.out.println("First unpaid: " + order)
         );
 
         /*
-            checking order 1
-            checking order 2
-            checking order 3
-            First unpaid order: Order[id=3, paid=false]
+            Checking order: 1
+            Checking order: 2
+            Checking order: 3
+            First unpaid: Order[id=3, paid=false]
          */
     }
 }
 
-/**
- * Simple domain record
- */
+// Domain
 record Order(int id, boolean paid) {}
