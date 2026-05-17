@@ -24,7 +24,7 @@ Methods annotated with @Test are invoked by the test runner.
 A single failing assertion fails the entire test method.  
 
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -85,7 +85,7 @@ clean and readable structure for writing test cases.
 - ASSERT: Verify the result matches the expectation
 
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -157,7 +157,7 @@ In this example:
 - Both test gets their own fresh, independent instance.
 
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -205,7 +205,7 @@ The test FAILS if:
 This makes it easy to test error conditions or preconditions.  
 
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 
@@ -245,7 +245,7 @@ In this example:
 - UserTest and OrderTest both run inside the same suite
 
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
@@ -268,7 +268,7 @@ public class TestSuite {
 }
 
 /*
-    Running examples.junit_v4.TestSuite
+    Running examples.junit.TestSuite
     Connecting to test database...
 
     UserTest.testCreateUser ....
@@ -284,7 +284,7 @@ public class TestSuite {
  */
 ~~~
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 
@@ -304,7 +304,7 @@ public class UserTest {
 }
 ~~~
 ~~~java
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 

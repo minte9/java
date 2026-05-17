@@ -1,4 +1,4 @@
-package examples.junit_v4;
+package examples.junit;
 
 import org.junit.Test;
 
