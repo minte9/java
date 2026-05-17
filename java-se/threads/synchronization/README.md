@@ -1,4 +1,6 @@
-### Race condition
+## Synchonization
+
+### 1. Race condition
 
 A race condition occurs when the outcome depends on the `timing of` threads.  
 
@@ -47,7 +49,7 @@ class ConcurentRunner implements Runnable {
 }
 ~~~
 
-### Locking
+### 2. Locking
 
 A lock is a mechanism that allows `one thread` at a time to execute a protected block of code.  
 All other threads must wait until the lock is `released`.  
