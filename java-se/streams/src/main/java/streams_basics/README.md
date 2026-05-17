@@ -1,7 +1,7 @@
 ## Streams Basics
 
-Streams were introduced in Java 8 to process collections  
-in a functional and declarative style.
+Streams were introduced in Java 8 to process collections in a 
+functional and declarative style.
 
 Common operations: filter, map, collect, reduce  
 Key ideas:  
@@ -285,8 +285,6 @@ public class OrdersApp {
 
     }
 }
-
-record Order(String id, double amount, boolean paid);
 ~~~
 
 
